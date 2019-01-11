@@ -1,0 +1,20 @@
+﻿/* Objeto
+----------------------------------------------------------*/
+.buscador
+{
+    width: 300px;
+    text-transform: uppercase;  
+}
+.btn_abm
+{
+    border: #d3d3d3 1px solid;
+    background: #dce3f0 url('../../img/fondos/boton_fdo.jpg') repeat-x 50% bottom;
+    font-size: 11px;
+    color: #666666;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 10px 2px 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}

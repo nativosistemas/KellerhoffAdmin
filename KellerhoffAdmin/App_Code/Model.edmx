@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KellerhoffModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_HomeSlide">
+          <Key>
+            <PropertyRef Name="hsl_idHomeSlide" />
+          </Key>
+          <Property Name="hsl_idHomeSlide" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hsl_titulo" Type="nvarchar" MaxLength="500" />
+          <Property Name="hsl_descr" Type="nvarchar(max)" />
+          <Property Name="hsl_descrReducido" Type="nvarchar(max)" />
+          <Property Name="hsl_descrHtml" Type="nvarchar(max)" />
+          <Property Name="hsl_descrHtmlReducido" Type="nvarchar(max)" />
+          <Property Name="hsl_tipo" Type="int" Nullable="false" />
+          <Property Name="hsl_idRecursoDoc" Type="int" />
+          <Property Name="hsl_NombreRecursoDoc" Type="nvarchar" MaxLength="500" />
+          <Property Name="hsl_idRecursoImgPC" Type="int" />
+          <Property Name="hsl_idRecursoImgMobil" Type="int" />
+          <Property Name="hsl_idOferta" Type="int" />
+          <Property Name="hsl_etiqueta" Type="nvarchar" MaxLength="50" />
+          <Property Name="hsl_publicar" Type="bit" Nullable="false" />
+          <Property Name="hsl_activo" Type="bit" Nullable="false" />
+          <Property Name="hsl_fecha" Type="datetime" Nullable="false" />
+          <Property Name="hsl_orden" Type="int" />
+          <Property Name="hsl_RatingCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_HomeSlide_Rating">
+          <Key>
+            <PropertyRef Name="hsr_idHomeSlide_Rating" />
+          </Key>
+          <Property Name="hsr_idHomeSlide_Rating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hsr_idHomeSlide" Type="int" Nullable="false" />
+          <Property Name="hsr_fecha" Type="datetime" Nullable="false" />
+          <Property Name="hsr_idCliente" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Oferta_Rating">
+          <Key>
+            <PropertyRef Name="ofr_idOferta_Rating" />
+          </Key>
+          <Property Name="ofr_idOferta_Rating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ofr_idOferta" Type="int" />
+          <Property Name="ofr_fecha" Type="datetime" Nullable="false" />
+          <Property Name="ofr_idCliente" Type="int" />
+          <Property Name="ofr_isDesdeHome" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="KellerhoffModelStoreContainer">
+          <EntitySet Name="tbl_HomeSlide" EntityType="Self.tbl_HomeSlide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HomeSlide_Rating" EntityType="Self.tbl_HomeSlide_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Oferta_Rating" EntityType="Self.tbl_Oferta_Rating" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KellerhoffModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_HomeSlide">
+          <Key>
+            <PropertyRef Name="hsl_idHomeSlide" />
+          </Key>
+          <Property Name="hsl_idHomeSlide" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hsl_titulo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_descrReducido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_descrHtml" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_descrHtmlReducido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_tipo" Type="Int32" Nullable="false" />
+          <Property Name="hsl_idRecursoDoc" Type="Int32" />
+          <Property Name="hsl_NombreRecursoDoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_idRecursoImgPC" Type="Int32" />
+          <Property Name="hsl_idRecursoImgMobil" Type="Int32" />
+          <Property Name="hsl_idOferta" Type="Int32" />
+          <Property Name="hsl_etiqueta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hsl_publicar" Type="Boolean" Nullable="false" />
+          <Property Name="hsl_activo" Type="Boolean" Nullable="false" />
+          <Property Name="hsl_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hsl_orden" Type="Int32" />
+          <Property Name="hsl_RatingCount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KellerhoffEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_HomeSlide" EntityType="Self.tbl_HomeSlide" />
+          <EntitySet Name="tbl_Oferta_Rating" EntityType="KellerhoffModel.tbl_Oferta_Rating" />
+          <EntitySet Name="tbl_HomeSlide_Rating" EntityType="KellerhoffModel.tbl_HomeSlide_Rating" />
+        </EntityContainer>
+        <EntityType Name="tbl_Oferta_Rating">
+          <Key>
+            <PropertyRef Name="ofr_idOferta_Rating" />
+          </Key>
+          <Property Name="ofr_idOferta_Rating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ofr_idOferta" Type="Int32" />
+          <Property Name="ofr_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ofr_idCliente" Type="Int32" />
+          <Property Name="ofr_isDesdeHome" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_HomeSlide_Rating">
+          <Key>
+            <PropertyRef Name="hsr_idHomeSlide_Rating" />
+          </Key>
+          <Property Name="hsr_idHomeSlide_Rating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hsr_idHomeSlide" Type="Int32" Nullable="false" />
+          <Property Name="hsr_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hsr_idCliente" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KellerhoffModelStoreContainer" CdmEntityContainer="KellerhoffEntities">
+          <EntitySetMapping Name="tbl_HomeSlide">
+            <EntityTypeMapping TypeName="KellerhoffModel.tbl_HomeSlide">
+              <MappingFragment StoreEntitySet="tbl_HomeSlide">
+                <ScalarProperty Name="hsl_RatingCount" ColumnName="hsl_RatingCount" />
+                <ScalarProperty Name="hsl_orden" ColumnName="hsl_orden" />
+                <ScalarProperty Name="hsl_idHomeSlide" ColumnName="hsl_idHomeSlide" />
+                <ScalarProperty Name="hsl_titulo" ColumnName="hsl_titulo" />
+                <ScalarProperty Name="hsl_descr" ColumnName="hsl_descr" />
+                <ScalarProperty Name="hsl_descrReducido" ColumnName="hsl_descrReducido" />
+                <ScalarProperty Name="hsl_descrHtml" ColumnName="hsl_descrHtml" />
+                <ScalarProperty Name="hsl_descrHtmlReducido" ColumnName="hsl_descrHtmlReducido" />
+                <ScalarProperty Name="hsl_tipo" ColumnName="hsl_tipo" />
+                <ScalarProperty Name="hsl_idRecursoDoc" ColumnName="hsl_idRecursoDoc" />
+                <ScalarProperty Name="hsl_NombreRecursoDoc" ColumnName="hsl_NombreRecursoDoc" />
+                <ScalarProperty Name="hsl_idRecursoImgPC" ColumnName="hsl_idRecursoImgPC" />
+                <ScalarProperty Name="hsl_idRecursoImgMobil" ColumnName="hsl_idRecursoImgMobil" />
+                <ScalarProperty Name="hsl_idOferta" ColumnName="hsl_idOferta" />
+                <ScalarProperty Name="hsl_etiqueta" ColumnName="hsl_etiqueta" />
+                <ScalarProperty Name="hsl_publicar" ColumnName="hsl_publicar" />
+                <ScalarProperty Name="hsl_activo" ColumnName="hsl_activo" />
+                <ScalarProperty Name="hsl_fecha" ColumnName="hsl_fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Oferta_Rating">
+            <EntityTypeMapping TypeName="KellerhoffModel.tbl_Oferta_Rating">
+              <MappingFragment StoreEntitySet="tbl_Oferta_Rating">
+                <ScalarProperty Name="ofr_isDesdeHome" ColumnName="ofr_isDesdeHome" />
+                <ScalarProperty Name="ofr_idCliente" ColumnName="ofr_idCliente" />
+                <ScalarProperty Name="ofr_fecha" ColumnName="ofr_fecha" />
+                <ScalarProperty Name="ofr_idOferta" ColumnName="ofr_idOferta" />
+                <ScalarProperty Name="ofr_idOferta_Rating" ColumnName="ofr_idOferta_Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_HomeSlide_Rating">
+            <EntityTypeMapping TypeName="KellerhoffModel.tbl_HomeSlide_Rating">
+              <MappingFragment StoreEntitySet="tbl_HomeSlide_Rating">
+                <ScalarProperty Name="hsr_idCliente" ColumnName="hsr_idCliente" />
+                <ScalarProperty Name="hsr_fecha" ColumnName="hsr_fecha" />
+                <ScalarProperty Name="hsr_idHomeSlide" ColumnName="hsr_idHomeSlide" />
+                <ScalarProperty Name="hsr_idHomeSlide_Rating" ColumnName="hsr_idHomeSlide_Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

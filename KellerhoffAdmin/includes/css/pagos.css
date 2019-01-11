@@ -1,0 +1,243 @@
+.color_emp_st {
+	color:#1B82C5 !important;
+}
+.color_white {
+	color:#fff !important;
+}
+.text-center {
+	text-align:center !important
+}
+
+.main.pagos {
+	background-color:#fff;
+	border:1px solid #E6E6E8;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px; 	
+}
+
+.pagos .encabezado {
+	position:relative;
+	display:block;
+	width:auto;
+	height:28px;	
+	border-bottom:1px solid #E6E6E8;
+}
+.encabezado .separate {
+	float:left;
+	margin-top:7px;
+	width:1px;
+	height:15px;
+	background-color:#706F6F;
+}
+.encabezado a {
+	float:left;
+	width:auto;
+	height:auto;
+	padding:8px 17px;
+	text-align: center;
+	color:#706F6F;
+	font-family: Georgia;
+	font-size:13px;
+	line-height:13px;
+	font-weight:400;
+}
+.encabezado a:hover {
+	color:#1B82C5;
+}
+.encabezado a:first-child {
+	border-top-left-radius:5px;
+}
+.encabezado a.active {
+	background-color:#1B82C5;
+	color:#fff;
+}
+.encabezado a span {
+	background-color:#FF0000;
+	color:#fff;
+	padding:3px 2px 2px 2px;
+	font-size:11px;
+	line-height:11px;
+	margin-right:3px;	
+}
+
+.pagos .pagos_cont {
+	padding:20px 18px;
+	font-family: Arial ;
+	font-size:14px;
+	line-height:14px;
+	font-weight:400;	
+}
+
+.pagos_cont p {
+	text-align: left;
+	color:#444449;
+	font-family: Arial;
+	font-size:14px;
+	line-height:17px;
+	font-weight:400;
+}
+
+.pagos_cont table tr td {
+	text-align:left;
+	font-family: Arial;
+	font-size:14px;
+	line-height:14px;
+	font-weight:400;	
+}
+
+ul.ul_bancos {
+	width:100% !important;
+	display:block;
+}
+
+ul.ul_bancos li {
+	padding-top:5px;
+	text-align:left;
+	font-family: Arial;
+	font-size:14px;
+	line-height:18px;
+	font-weight:400;	
+}
+
+.div_color_emp_st,
+.div_gris {
+	margin:20px 0;
+	font-family: Arial;
+	font-size:14px;
+	line-height:18px;
+	font-weight:700;
+	padding:10px 20px;
+	background-color:#444449;
+	color:#fff !important;
+}
+.div_color_emp_st {
+	background-color:#1B82C5;
+	text-align:left;
+}
+
+div.odd,
+tr.odd {
+	height:12px;
+	background-color:#444;
+}
+div.odd,
+tr.odd td {
+	font-family: Arial;
+	font-size:13px;
+	line-height:13px;
+	color:#fff;
+	font-weight:700 !important;	
+	padding:9px 0;
+	text-align:center !important;
+}
+
+div.even,
+tr.even {
+	width:100%;
+	height:70px;
+}
+
+div.odd div,
+div.even div {
+	float:left;
+	width:165px;
+	text-align:center;
+}
+div.odd div:last-child,
+div.even div:last-child {
+	width:210px;
+}
+
+div.even,
+tr.even td {
+	border-bottom:1px solid #C6C6C6 !important;
+	font-family: Arial;
+	font-size:13px;
+	line-height:13px;
+	font-weight:400;	
+	text-align:center !important;
+}
+div.even div {
+	padding-top:30px;
+	font-family: Arial;
+	font-size:13px;
+	line-height:13px;
+	font-weight:400;	
+}
+
+div.even div:first-child {
+	padding-top:7px;
+}
+
+/* div bancos */
+.div_nacion,
+.div_bbva,
+.div_credicoop,
+.div_galicia,
+.div_hsbc,
+.div_patagonia,
+.div_santafe,
+.div_supervielle,
+.div_macro {
+	float:left;
+	width:120px;
+	height:53px;
+	background-repeat:no-repeat;
+	background-position: bottom;
+	background-image:url(../../../img/macro.jpg);
+}
+
+.div_nacion {
+	background-image:url(../../../img/nacion.jpg);
+}
+
+.div_bbva {
+	background-image:url(../../../img/bbva.jpg);
+}
+.div_credicoop {
+	background-image:url(../../../img/credicoop.jpg);
+}
+.div_galicia {
+	background-image:url(../../../img/galicia.jpg);
+}
+.div_hsbc {
+	background-image:url(../../../img/hsbc.jpg);
+}
+.div_patagonia {
+	background-image:url(../../../img/patagonia.jpg);
+}
+.div_santafe {
+	background-image:url(../../../img/santa_fe.jpg);
+}
+.div_supervielle {
+	background-image:url(../../../img/supervielle.jpg);
+}
+
+.div_banelco {
+	float:left;
+	margin:0 5px;
+	margin-top:10px;
+	width:100px;
+	height:31px;
+	background-repeat:no-repeat;
+	background-position: middle;
+	background-image:url(../../../img/banelco.jpg);
+}
+.div_link {
+	float:left;
+	margin:0 5px;
+	width:52px;
+	height:52px;
+	background-repeat:no-repeat;
+	background-position: middle;
+	background-image:url(../../../img/link.jpg);
+}
+.tarjetas_habilitadas {
+	position:relative;
+	width:909px;
+	height:59px;
+	margin-bottom:15px;
+	background-repeat:no-repeat;
+	background-position: bottom;
+	background-image:url(../../../img/tarjetas.jpg);
+}

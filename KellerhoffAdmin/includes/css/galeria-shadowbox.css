@@ -1,0 +1,21 @@
+﻿body 
+{
+    
+}
+.galeria_shadowbox {font-family: Georgia,"Times New Roman",Times,serif; width: 770px; background-color:#FFF; height: 718px;  }
+
+.galeria_shadowbox h1 {font-size:22px; font-weight:bold; font-style:normal ; color:#979797; padding: 10px; margin:0; clear:none; float:left; width:175px;}
+
+.galeria_shadowbox .col_iz {position:relative;}
+.galeria_shadowbox .col_iz .foto {float:left; clear:none; position:relative; height:611px; width:760px; padding:15px; }
+
+.galeria_shadowbox .caption {background-color: #FFF ;  font-size:16px; padding: 10px 0 10px 15px;  width:100%; clear:both; height:60px;}
+.galeria_shadowbox .caption .fecha  {color: #F15F23; display: block; float:left; clear:left; width:50px; text-align:center; margin-left:10px; margin-top:-10px;}
+.galeria_shadowbox .caption .separador {  margin:5px 20px 0 180px; border-left:#1e81c4 1px solid; height: 60px; padding-left: 10px;}
+.galeria_shadowbox .caption .bajada { font-size:18px; font-weight:bold; color:#1e85c0; display: block; }
+.galeria_shadowbox .caption .descripcion { font-size:16px; color:#808080; display: block;float:left;   }
+.galeria_shadowbox .caption .destacado { font-size:16px; font-weight:bold; color:#d10f56 ; display: block; padding-left:10px;  float:left;}
+
+.cerrar {float:right; height:35px; font-size:20px; width:35px; font-weight:bold; line-height: 35px; vertical-align:middle; text-align:center; background: url(shadowbox-3.0.3/clase.png) no-repeat;}
+.clear { font-size:0px; height:0px; line-height:0px; overflow:hidden; clear:both;}
+

@@ -1,0 +1,144 @@
+﻿   #divCerrar
+   {
+       position:absolute;z-index:9016;top:2%;width: 780px;text-align:right;color:White;font-size:16px;  cursor:pointer;display: none;
+       }
+   .cssImgBarra
+        {
+            cursor:pointer;
+            }
+            .imgnotaindex
+            {
+                  cursor:pointer;
+                }
+        #divGaleriaObrasFondo
+        {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 180%;
+            background-color: Black;
+            opacity: 0.6;
+            filter: alpha(opacity=60); /* For IE8 and earlier */ /*display: none;*/
+            z-index: 9015;
+        }
+        #tbGaleria
+        {
+            display: none;
+            background-color: White;
+            position:absolute;
+            z-index:9016;
+            top:5%;
+        }
+        ul li
+        {
+            list-style: none;
+            display: inline;
+        }
+        #barra
+        {
+            height: 116px;
+            width: 780px;
+            overflow:auto;
+            overflow-y:hidden;
+            text-align: left;
+        }
+        .cssListaBarra
+        {
+             height: 96px;
+            
+            }
+        #divGaleria
+        {
+            width: 780px;
+            height: 510px;
+            overflow: hidden;   
+            text-align: left;
+        }
+        a.ws_next, a.ws_prev
+        {
+            position: absolute;
+            display: none;
+            top: 48%;
+            margin-top: 0;
+            z-index: 60;
+            height: 40px;
+            width: 40px; /*  background-image: url(./arrows.png);*/
+            /*background-image: url(http://www.uttrakhandtourism.in/engine1/arrows.png);*/
+            background-image: url(../engine1/arrows.png);
+            cursor: pointer;
+        }
+        a.ws_next
+        {
+            background-position: 100% 0;
+            right: 0px;
+        }
+        a.ws_prev
+        {
+            left: 0px;
+            background-position: 0 0;
+        }
+        a.ws_next:hover
+        {
+            background-position: 100% 100%;
+        }
+        a.ws_prev:hover
+        {
+            background-position: 0 100%;
+        }
+        .cuadro_galeriaGaleriaSeleccionado
+        {
+            border-color: #1884C5;
+            border-style: solid;
+            border-width: 3px;
+        }      
+        .h1Galeria {font-size:22px; font-weight:bold; font-style:normal ; color:#979797; padding: 10px; margin:0; clear:none; float:left; width:175px;}
+        .caption{text-align: left;}
+.separador {  margin:5px 20px 0 180px; border-left:#1e81c4 1px solid; height: 60px; padding-left: 10px;}
+ .bajada { font-size:18px; font-weight:bold; color:#1e85c0; display: block; }
+.descripcion { font-size:16px; color:#808080; display: block;float:left;   }
+.destacado { font-size:16px; font-weight:bold; color:#d10f56 ; display: block; padding-left:10px;  float:left;}
+
+/*playpause*/
+.ws_playpause {
+	display:none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    z-index: 59;
+}
+/*
+#wowslider-container1:hover .ws_playpause {
+	display:block;
+}*/
+.ws_pause {
+    background-image: url(../engine1/pause.png);
+}
+
+.ws_play {
+    background-image: url(../engine1/play.png);
+}
+.ws_pause:hover,.ws_play:hover {
+    background-position: 100% 100% !important;
+}/* bottom right */
+
+#divDatosNotica
+{
+    width:780px;
+    max-height:70px;
+    overflow:hidden;
+}
+
+#divMostrarPagina{
+    position: absolute;
+    top: 79%;
+    left: 3%;
+    font-weight:bold;
+    color: #F1D11F;
+    font-size: 14px;
+}

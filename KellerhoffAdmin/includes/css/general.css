@@ -1,0 +1,187 @@
+﻿/* Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, center, u, b, i
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+blockquote:before, blockquote:after, q:before, q:after
+{
+    content: "";
+}
+blockquote, q
+{
+    quotes: "" "";
+}
+hr
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #000;
+    background-color: #000;
+    height: 1px;
+}
+ol, li
+{
+    margin-left: 16px;
+}
+/* Fin reset*/
+
+
+/* DEFAULTS
+----------------------------------------------------------*/
+html
+{
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    font-size: 11px;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    /*  width: 100%;*/
+    background-color: #fff;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header
+{
+    margin: 0px;
+    padding: 0px; /* width: 100%;*/
+}
+.title
+{
+    float: left; /*  text-align: left;*/
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.headerTituloAndSession
+{
+    margin: 0px;
+    padding: 0px;
+    height: 35px;
+    background-color: #2f4678;
+    -webkit-box-shadow: inset 0px -3px 5px -1px #0B111D;
+    box-shadow: inset 0px -3px 5px -1px #0B111D;
+    width: 100%;
+}
+.loginDisplay
+{
+    
+    font-size:10px;
+    text-align: right;
+    padding-right: 10px;
+    color:#FFF;
+    float: right;
+}
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+}
+
+
+.footer
+{
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+
+
+/* MENU   */
+
+div.fdomenu
+{
+    /* background: url(../../img/fondos/header_menu.jpg) repeat-x #2f4678;*/ /*  width: 100%;*/
+    padding: 0px;
+    height: 30px;
+    background-color: #F7F5F6;
+    -webkit-box-shadow: inset 0px -3px 5px -1px #EEECED;
+    box-shadow: inset 0px -3px 5px -1px #EEECED;
+}
+
+div.menu
+{
+    padding: 3px;
+}
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+div.menu ul
+{
+    margin-top: 1px;
+}
+.subMenu
+{
+    background-color: #f8f8f8; /* border-radius: 15px;     -moz-border-radius: 15px;     -webkit-border-radius: 15px;*/
+}
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #f7f6f6;
+    color: #333333;
+    display: block;
+    line-height: 1.35em;
+    font-size: 11px;
+    padding: 3px 17px; /* margin:1px;*/
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #5271a1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+/* fin menu */
+
+.clear
+{
+    clear: both;
+}
+.bold
+{
+    font-weight: bold;
+}
+
+.accesoDenegado
+{
+    margin:0px auto;
+    margin-top:80px;
+    width:350px;
+    color:Red;
+    font-size:42px;
+}

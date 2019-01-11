@@ -1,0 +1,262 @@
+﻿body {
+}
+/*!
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@font-face {
+    font-family: FontAwesome;
+    src: url(../home/less/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0);
+    src: url(../home/less/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(../home/less/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(../home/less/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(../home/less/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(../home/less/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.col-item {
+    width:250px;
+    /*float:left;*/
+    margin-right: 70px;
+}
+.col-item {
+    padding: 0;
+    background: 0 0;
+    margin-bottom: 50px;
+}
+
+    .col-item .photo {
+        position: relative;
+    }
+
+
+        .col-item .photo a .bg_promo {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #0d1217;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .col-item .photo a .btn_bg_promo {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: 130px;
+            width: 130px;
+            padding: 10px 20px 8px;
+            background: #1b82c5;
+            color: #fff;
+            text-align: center;
+            z-index: 3;
+            opacity: 0;
+        }
+        .btn_bg_promo {
+          font-size:14px;
+        }
+            .col-item .photo a .btn_bg_promo:before {
+                content: '\f1c1';
+                font-family: FontAwesome;
+                padding-right: 10px;
+                font-size: 13px !important;
+            }
+
+        .col-item .photo a:hover .btn_bg_promo {
+            opacity: 1;
+        }
+
+        .col-item .photo a:hover div {
+            opacity: .8;
+        }
+
+        .col-item .photo a img, .col-item .photo img {
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+        }
+        .col-item .photo .etiqueta {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto !important;
+            padding: 7px 8px 5px !important;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 14px !important;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+    .col-item .info {
+       /* padding-top: 10px;*/
+    }
+
+    .col-item .price {
+      /*  float: left;
+        margin-top: 5px;*/
+    }
+
+        .col-item .price h5 {
+            font-weight: 600;
+            height: 20px !important;
+            text-align: left;
+            font-size: 18px;
+            line-height: 20px;
+            color: #1b82c5;
+            margin-bottom: 10px !important;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+        .col-item .price p {
+            font-weight: 300;
+            height: 57px !important;
+            text-align: left;
+            font-size: 14px;
+            line-height: 18px;
+            color: #58595b;
+            margin-bottom: 5px !important;
+            overflow: hidden;
+        }
+
+        .col-item .price .desc {
+            font-weight: 400;
+            height: 40px !important;
+            text-align: left;
+            font-size: 40px;
+            line-height: 40px;
+            color: #e74c3c;
+            margin-bottom: 10px !important;
+            overflow: hidden;
+        }
+
+.price-text-color {
+    padding-bottom: 10px !important;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #34495e !important;
+}
+
+.col-item .info .rating {
+    color: #777;
+}
+
+.col-item .rating {
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+.col-item .separator {
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left {
+    clear: left;
+}
+
+.col-item .separator p {
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+    .col-item .separator p i {
+        margin-right: 5px;
+    }
+
+.col-item .btn-add {
+    width: 50%;
+    float: left;
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details {
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.div_ImagenPromo {
+
+    width: 250px;
+    height:250px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+a.btn_ampliar, a.btn_carrito, a.btn_emp, a.btn_volver, a.pdf, button.btn_carrito, button.btn_emp {
+    height: auto;
+    width: auto !important;
+    display: inline-block;
+    padding: 10px 20px 8px !important;
+    text-align: center;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    background-color: #1b82c5;
+    color: #fff !important;
+    border: 1px solid #1b82c5;
+        float: left;
+}
+    a.btn_ampliar:hover, a.btn_carrito:hover, a.btn_emp:hover, a.btn_volver:hover, a.pdf:hover, button.btn_carrito:hover, button.btn_emp:hover {
+        background-color: transparent;
+        color: #1b82c5 !important;
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        -ms-transition-duration: .5s;
+        -o-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+a.btn_carrito, button.btn_carrito {
+    background-color: transparent;
+    color: #1b82c5 !important;
+    border-color: #1b82c5;
+}
+    a.btn_carrito:hover, button.btn_carrito:hover {
+        background-color: #1b82c5;
+        color: #fff !important;
+    }
+    a.btn_carrito:before, button.btn_carrito:before {
+    content: '\f07a';
+    font-family: FontAwesome;
+    float: left;
+    padding-right: 10px;
+    font-size: 18px !important;
+    margin-top: -2px !important;
+}
+.btn_carrito {
+cursor:pointer;
+}
+
+
+a.btn_ampliar, button.btn_ampliar {
+    background-color: transparent;
+    color: #34495e !important;
+    border-color: #34495e;
+}
+
+    a.btn_ampliar:hover, button.btn_ampliar:hover {
+        background-color: #34495e;
+        color: #fff !important;
+    }
+
+    a.btn_ampliar:before, button.btn_ampliar:before {
+        content: '\f1c1';
+        font-family: FontAwesome;
+        float: left;
+        padding-right: 10px;
+        font-size: 13px !important;
+    }
+a.btn_ampliar {
+    padding: 10px 15px 7px !important;
+    margin-right:5px;
+}
+

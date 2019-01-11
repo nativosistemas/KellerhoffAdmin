@@ -1,0 +1,125 @@
+    /* image replacement */
+        .graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next{
+            margin:0;
+            padding:0;
+            display:block;
+            overflow:hidden;
+            text-indent:-8000px;
+            }
+    /* // image replacement */
+			
+	#container{	
+		margin:0 auto;
+		position:relative;
+		text-align:left;
+		width:585px;
+		background:#fff;		
+		margin-bottom:2em;
+		}	
+	#header{
+		height:80px;
+		line-height:80px;
+		background:#5DC9E1;
+		color:#fff;
+		}				
+	#content{
+		position:relative;
+		}			
+
+/* Easy Slider */
+
+	#slider ul, #slider li,
+	#slider2 ul, #slider2 li{
+		margin:0;
+		padding:0;
+		list-style:none;
+
+		}
+	#slider2{margin-top:1em;}
+	#slider li, #slider2 li{ 
+		/* 
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/ 
+		width:170px;
+		height:170px;
+		overflow:hidden; 
+		}
+/* CLASE DUPLICADA PARA EL BIG SLIDER */
+	#big-slider{margin-top:1em;}
+	#big-slider li, #big-slider li{ 
+		/* 
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/ 
+		margin:0px;
+		width:170px;
+		height:170px;
+		overflow:hidden;
+		}
+			
+	#prevBtn, #nextBtn,
+	#slider1next, #slider1prev{ 
+		display:block;
+		width:0px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		top:71px;
+		z-index:1000;
+		}	
+	#nextBtn, #slider1next{ 
+		left:696px;
+		}														
+	#prevBtn a, #nextBtn a,
+	#slider1next a, #slider1prev a{  
+		display:block;
+		position:relative;
+		width:0px;
+		height:77px;
+		background:url(../images/btn_prev.gif) no-repeat 0 0;	
+		}	
+	#nextBtn a, #slider1next a{ 
+		background:url(../images/btn_next.gif) no-repeat 0 0;	
+		}
+	/* numeric controls */	
+	ol#controls{
+/*		margin:1em 0;*/
+		margin-top: -22px;
+		padding:0;
+		height:20px;
+		float:right;
+		display:none;
+		}
+	ol#controls li{
+		margin:0 7px 0 0; 
+		padding:0;
+		float:left;
+		list-style:none;
+		height:15px;
+		line-height:15px;
+		display:none;
+		}
+	ol#controls li a{
+		float:left;
+		height:15px;
+		line-height:15px;
+		border:1px solid #ccc;
+		background:#EFEFEF;
+		color:#666;
+		padding:0 3px;
+		text-decoration:none;
+		font-size:11px;
+		text-align:center;
+		display:none;
+		}
+	ol#controls li.current a{
+		background:#FFF;
+		color:#333;
+		font-size:11px;
+		font-weight:bold;
+		text-align:center;
+		display:none;			
+		}
+	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+/* // Easy Slider */

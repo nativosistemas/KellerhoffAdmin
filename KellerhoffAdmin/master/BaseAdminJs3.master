@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="BaseAdminJs3.master.cs" Inherits="master_BaseAdmin" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Droguería Kellerhoff</title>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-91993710-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="robots" content="noindex,nofollow,noarchive,noodp,nosnippet" />
+    <link href="~/includes/css/general.css" rel="stylesheet" type="text/css" />
+    <link href="~/includes/css/abm.css" rel="stylesheet" type="text/css" />
+    <script src="../../includes/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css"  href="~/includes/css/jquery-confirm.min.css"/>
+    <script src="../../includes/js/jquery-confirm.min.js" type="text/javascript"></script>
+
+    <%--    <script src="../../includes/js/jquery-1.7.2.min.js" type="text/javascript"></script>--%>
+    <script src="../../includes/js/Libreria.js?n=1" type="text/javascript"></script>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form2" runat="server">
+        <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="Server" EnablePartialRendering="true"
+            EnablePageMethods="true" EnableScriptGlobalization="True" />
+        <div class="page">
+            <div class="header">
+                <div class="headerTituloAndSession">
+                    <div class="title">
+                        Administrador de Proyectos
+                    </div>
+                    <div class="loginDisplay">
+                        <div>
+                            <asp:Label ID="lblBienvenido" runat="server" Text="Bienvenido, "></asp:Label>
+                            <asp:Label ID="lblNombreUsuario" runat="server" Text=""></asp:Label>
+                        </div>
+                        <div>
+                            <asp:HyperLink ID="linkCerrarSession" runat="server" NavigateUrl="~/admin/Default.aspx?c=t"
+                                ForeColor="White">[Cerrar Sesión]</asp:HyperLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear fdomenu">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                        IncludeStyleBlock="false" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem Text="Seguridad">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionUsuario.aspx" Text="Usuarios" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionRol.aspx" Text="Gestión de rol" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionRegla.aspx" Text="Gestión de regla" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionRolesYReglas.aspx" Text="Gestión reglas y roles" />
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionProcedimientos.aspx" Text="Procedimientos" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeNew.aspx" Text="Alertas" />
+                            <asp:MenuItem Text="Productos">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoDatosExtras.aspx" Text="Productos Datos Extras" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoImagen.aspx" Text="Productos Imagenes" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Sucursales">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionSucursal.aspx" Text="Sucursales dependencia" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionHorarioSucursal.aspx" Text="Horarios de sucursales" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMontoMinimo.aspx" Text="Monto Mínimo" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionTiposEnvios.aspx" Text="Tipos de Envíos" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionTiposEnviosSucursal.aspx" Text="Tipos de Envíos Sucursal" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionCategoriaRestriccion.aspx" Text="Cadeteria - Parámetro" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Web Institucional">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionNoticia.aspx" Text="Noticias" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionInstitucional.aspx" Text="Quienes Somos" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionEmpresa.aspx" Text="Empresa" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionColegios.aspx" Text="Colegios" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionLinksInteres.aspx" Text="Links de interés" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionFrases.aspx" Text="Frases" />
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionContacto.aspx" Text="Contacto" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionCatalogo.aspx" Text="Catálogo" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionCurriculumVitae.aspx" Text="Curriculum Vitae" />
+                            <asp:MenuItem Text="Ofertas">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionOferta.aspx" Text="Ofertas" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionOfertaHome.aspx" Text="Ofertas Home" />
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionHomeSlide.aspx" Text="Home Slide" />
+                                                         <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </div>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </form>
+
+</body>
+</html>
