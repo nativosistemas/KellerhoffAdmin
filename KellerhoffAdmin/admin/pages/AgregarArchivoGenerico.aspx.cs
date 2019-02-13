@@ -124,7 +124,18 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
 
                     FileUpload1.PostedFile.SaveAs(path + nombreFinal);
                     string titulo = String.Format("{0}", Request.Form["txt_titulo"]);
-                    string descr = String.Format("{0}", Request.Form["txt_descr"]);
+                    // string descr = String.Format("{0}", Request.Form["txt_descr"]);
+                    string descr_aux = String.Format("{0}", Request.Form["hiddenSucursales"]);
+                    string descr = string.Empty;
+                    if (!string.IsNullOrWhiteSpace(descr_aux))
+                    {
+                        string[] words = descr_aux.Split('-');
+                        foreach (string word in words)
+                        {
+                            descr += "<" + word + ">";
+                        }
+                    }
+
                     obj.codRecurso = WebService.InsertarActualizarArchivo(obj.codRecurso, obj.id, obj.tipo, CacheExtencionArchivo, FileUpload1.PostedFile.ContentType, nombreFinal, titulo, descr, string.Empty, Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["codigoUsuarioSinRegistrar"]));
                     HttpContext.Current.Session["AgregarArchivoGenerico_obj"] = null;
 
@@ -137,7 +148,8 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
                             Response.Redirect("GestionOferta.aspx");
                             break;
                         case "popup":
-                            WebService.ActualizarImagenHomeSlide(obj.id, obj.codRecurso, obj.ancho == 700 ? 2 : 1);
+                            //WebService.ActualizarImagenHomeSlide(obj.id, obj.codRecurso, obj.ancho == 700 ? 2 : 1);
+                            cThumbnail.obtenerImagen(obj.tipo, nombreFinal, "1024", "768", "", false);
                             Response.Redirect("GestionPopUp.aspx");
                             break;
                         default:
@@ -153,7 +165,18 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
             else if (!fileOK && obj.objArchivo != null && obj.tipo == "popup")
             {
                 string titulo = String.Format("{0}", Request.Form["txt_titulo"]);
-                string descr = String.Format("{0}", Request.Form["txt_descr"]); 
+                //string descr = String.Format("{0}", Request.Form["txt_descr"]);
+                string descr_aux = String.Format("{0}", Request.Form["hiddenSucursales"]);
+                string descr = string.Empty;
+                if (!string.IsNullOrWhiteSpace(descr_aux))
+                {
+                    string[] words = descr_aux.Split('-');
+                    foreach (string word in words)
+                    {
+                        descr += "<" + word + ">";
+                    }
+                }
+
                 obj.codRecurso = WebService.InsertarActualizarArchivo(obj.codRecurso, obj.id, obj.tipo, obj.objArchivo.arc_tipo, obj.objArchivo.arc_mime, obj.objArchivo.arc_nombre, titulo, descr, string.Empty, Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["codigoUsuarioSinRegistrar"]));
                 HttpContext.Current.Session["AgregarArchivoGenerico_obj"] = null;
 
@@ -191,6 +214,7 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
             string resultado = string.Empty;
             htmlArchivo obj = (htmlArchivo)HttpContext.Current.Session["AgregarArchivoGenerico_obj"];
             resultado += "<input type=\"hidden\" id=\"hiddenFile\" value=\"" + Server.HtmlEncode(SitioBase.clases.Serializador.SerializarAJson(obj)) + "\" />";
+            resultado += "<input type=\"hidden\" id=\"hiddenTodasSucursales\" value=\"" + Server.HtmlEncode(SitioBase.clases.Serializador.SerializarAJson(WebService.RecuperarTodasSucursales())) + "\" />";
             Response.Write(resultado);
         }
     }
