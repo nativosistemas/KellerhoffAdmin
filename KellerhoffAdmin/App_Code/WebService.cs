@@ -5231,7 +5231,28 @@ public class WebService : System.Web.Services.WebService
         //capaEF.InsertarHomeSlideRating(hsr_idHomeSlide,  hsr_idCliente);
         return true;
     }
-
+    public static bool? CambiarPublicarReCall(int rec_id)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+            return capaEF.CambiarPublicarReCall(rec_id);
+        return null;
+    }
+    public static bool? EliminarReCall(int rec_id)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+            return capaEF.EliminarReCall(rec_id);
+        return null;
+    }
+    public static bool? InsertarActualizarReCall(int rec_id, string rec_titulo, string rec_descripcion, string rec_descripcionReducido, string rec_descripcionHTML, DateTime? rec_FechaNoticia, DateTime? rec_FechaFinNoticia)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+            return capaEF.InsertarActualizarReCall(rec_id,  rec_titulo,  rec_descripcion,  rec_descripcionReducido,  rec_descripcionHTML,  rec_FechaNoticia,  rec_FechaFinNoticia);
+        return null;
+    }
+    public static List<tbl_Recall> RecuperarTodaReCall()
+    {
+        return capaEF.RecuperarTodaReCall();
+    }
     public class Autenticacion : SoapHeader
     {
         private string sUserPass;

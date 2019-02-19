@@ -48,3 +48,16 @@ public partial class tbl_Oferta_Rating
     public Nullable<int> ofr_idCliente { get; set; }
     public Nullable<bool> ofr_isDesdeHome { get; set; }
 }
+
+public partial class tbl_Recall
+{
+    public int rec_id { get; set; }
+    public string rec_titulo { get; set; }
+    public string rec_descripcion { get; set; }
+    public string rec_descripcionReducido { get; set; }
+    public string rec_descripcionHTML { get; set; }
+    public Nullable<System.DateTime> rec_FechaNoticia { get; set; }
+    public Nullable<System.DateTime> rec_FechaFinNoticia { get; set; }
+    public Nullable<System.DateTime> rec_Fecha { get; set; }
+    public Nullable<bool> rec_visible { get; set; }
+}

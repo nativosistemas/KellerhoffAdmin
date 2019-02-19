@@ -213,6 +213,93 @@ public class capaEF
         { return null; }
         return resultado;
     }
+    public static List<tbl_Recall> RecuperarTodaReCall()
+    {
+        List<tbl_Recall> resultado = null;
+        try
+        {
+            KellerhoffEntities ctx = new KellerhoffEntities();
+            resultado = ctx.tbl_Recall.ToList();
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        return resultado;
+    }
+    public static bool? InsertarActualizarReCall(int rec_id, string rec_titulo, string rec_descripcion, string rec_descripcionReducido, string rec_descripcionHTML, DateTime? rec_FechaNoticia, DateTime? rec_FechaFinNoticia)
+    {
+        bool? resultado = null;
+        try
+        {
+            tbl_Recall o = null;
+
+            KellerhoffEntities ctx = new KellerhoffEntities();
+
+            if (rec_id == 0)
+            {
+                o = ctx.tbl_Recall.Create();
+                o.rec_visible = false;
+            }
+            else
+                o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);
+            o.rec_titulo = rec_titulo;
+            o.rec_descripcion = rec_descripcion;
+            o.rec_descripcionReducido = rec_descripcionReducido;
+            o.rec_descripcionHTML = rec_descripcionHTML;
+            o.rec_FechaNoticia = rec_FechaNoticia;
+            o.rec_FechaFinNoticia = rec_FechaFinNoticia;
+            o.rec_Fecha = DateTime.Now;
+           // o.hsl_idRecursoDoc = hsl_idRecursoDoc;
+            //o.hsl_idRecursoImgPC = hsl_idRecursoImgPC;
+            //o.hsl_idRecursoImgMobil = hsl_idRecursoImgMobil;
+            if (rec_id == 0)
+            {
+                ctx.tbl_Recall.Add(o);
+            }
+            ctx.SaveChanges();
+            resultado = true;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        return resultado;
+    }
+    public static bool? CambiarPublicarReCall(int rec_id)
+    {
+        bool? resultado = null;
+        try
+        {
+            tbl_Recall o = null;
+            KellerhoffEntities ctx = new KellerhoffEntities();
+            o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);
+            o.rec_visible =  !o.rec_visible;
+            ctx.SaveChanges();
+            resultado = true;
+        }
+        catch (Exception ex)
+        { return null; }
+        return resultado;
+    }
+    public static bool? EliminarReCall(int rec_id)
+    {
+        bool? resultado = null;
+        try
+        {
+            tbl_Recall o = null;
+            KellerhoffEntities ctx = new KellerhoffEntities();
+            o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);
+            ctx.tbl_Recall.Remove(o);
+            ctx.SaveChanges();
+            resultado = true;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        return resultado;
+    }
 }
 
 public partial class tbl_HomeSlide
@@ -223,6 +310,17 @@ public partial class tbl_HomeSlide
     {
 
         get { return this.hsl_fecha.ToShortDateString(); }
+        set { }
+    }
+}
+public partial class tbl_Recall
+{
+    //[NotMapped]
+    // [JsonProperty("hsl_fechaToString")]
+    public string rec_FechaNoticiaToString
+    {
+
+        get { return this.rec_FechaNoticia == null?string.Empty: this.rec_FechaNoticia.Value.ToShortDateString(); }
         set { }
     }
 }

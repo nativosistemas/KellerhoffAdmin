@@ -26,4 +26,5 @@ public partial class KellerhoffEntities : DbContext
     public virtual DbSet<tbl_HomeSlide> tbl_HomeSlide { get; set; }
     public virtual DbSet<tbl_Oferta_Rating> tbl_Oferta_Rating { get; set; }
     public virtual DbSet<tbl_HomeSlide_Rating> tbl_HomeSlide_Rating { get; set; }
+    public virtual DbSet<tbl_Recall> tbl_Recall { get; set; }
 }

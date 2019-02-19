@@ -47,10 +47,25 @@
           <Property Name="ofr_idCliente" Type="int" />
           <Property Name="ofr_isDesdeHome" Type="bit" />
         </EntityType>
+        <EntityType Name="tbl_Recall">
+          <Key>
+            <PropertyRef Name="rec_id" />
+          </Key>
+          <Property Name="rec_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rec_titulo" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="rec_descripcion" Type="nvarchar(max)" />
+          <Property Name="rec_descripcionReducido" Type="nvarchar(max)" />
+          <Property Name="rec_descripcionHTML" Type="nvarchar(max)" />
+          <Property Name="rec_FechaNoticia" Type="datetime" />
+          <Property Name="rec_FechaFinNoticia" Type="datetime" />
+          <Property Name="rec_Fecha" Type="datetime" />
+          <Property Name="rec_visible" Type="bit" />
+        </EntityType>
         <EntityContainer Name="KellerhoffModelStoreContainer">
           <EntitySet Name="tbl_HomeSlide" EntityType="Self.tbl_HomeSlide" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_HomeSlide_Rating" EntityType="Self.tbl_HomeSlide_Rating" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Oferta_Rating" EntityType="Self.tbl_Oferta_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Recall" EntityType="Self.tbl_Recall" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -83,6 +98,7 @@
           <EntitySet Name="tbl_HomeSlide" EntityType="Self.tbl_HomeSlide" />
           <EntitySet Name="tbl_Oferta_Rating" EntityType="KellerhoffModel.tbl_Oferta_Rating" />
           <EntitySet Name="tbl_HomeSlide_Rating" EntityType="KellerhoffModel.tbl_HomeSlide_Rating" />
+          <EntitySet Name="tbl_Recall" EntityType="KellerhoffModel.tbl_Recall" />
         </EntityContainer>
         <EntityType Name="tbl_Oferta_Rating">
           <Key>
@@ -102,6 +118,20 @@
           <Property Name="hsr_idHomeSlide" Type="Int32" Nullable="false" />
           <Property Name="hsr_fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="hsr_idCliente" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Recall">
+          <Key>
+            <PropertyRef Name="rec_id" />
+          </Key>
+          <Property Name="rec_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rec_titulo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="rec_descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rec_descripcionReducido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rec_descripcionHTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rec_FechaNoticia" Type="DateTime" Precision="3" />
+          <Property Name="rec_FechaFinNoticia" Type="DateTime" Precision="3" />
+          <Property Name="rec_Fecha" Type="DateTime" Precision="3" />
+          <Property Name="rec_visible" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -151,6 +181,21 @@
                 <ScalarProperty Name="hsr_fecha" ColumnName="hsr_fecha" />
                 <ScalarProperty Name="hsr_idHomeSlide" ColumnName="hsr_idHomeSlide" />
                 <ScalarProperty Name="hsr_idHomeSlide_Rating" ColumnName="hsr_idHomeSlide_Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Recall">
+            <EntityTypeMapping TypeName="KellerhoffModel.tbl_Recall">
+              <MappingFragment StoreEntitySet="tbl_Recall">
+                <ScalarProperty Name="rec_visible" ColumnName="rec_visible" />
+                <ScalarProperty Name="rec_Fecha" ColumnName="rec_Fecha" />
+                <ScalarProperty Name="rec_FechaFinNoticia" ColumnName="rec_FechaFinNoticia" />
+                <ScalarProperty Name="rec_FechaNoticia" ColumnName="rec_FechaNoticia" />
+                <ScalarProperty Name="rec_descripcionHTML" ColumnName="rec_descripcionHTML" />
+                <ScalarProperty Name="rec_descripcionReducido" ColumnName="rec_descripcionReducido" />
+                <ScalarProperty Name="rec_descripcion" ColumnName="rec_descripcion" />
+                <ScalarProperty Name="rec_titulo" ColumnName="rec_titulo" />
+                <ScalarProperty Name="rec_id" ColumnName="rec_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

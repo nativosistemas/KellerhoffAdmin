@@ -92,7 +92,8 @@
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionOfertaHome.aspx" Text="Ofertas Home" />
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionHomeSlide.aspx" Text="Home Slide" />
-                                                         <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
+                              <asp:MenuItem NavigateUrl="~/admin/pages/GestionReCall.aspx" Text="ReCall" />
                         </Items>
                     </asp:Menu>
                 </div>

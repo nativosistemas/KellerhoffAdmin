@@ -7,6 +7,7 @@
       <Diagram DiagramId="ef8ca000438c452eac3768511b67946c" Name="Diagram1" ZoomLevel="87">
         <EntityTypeShape EntityType="KellerhoffModel.tbl_HomeSlide" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KellerhoffModel.tbl_Oferta_Rating" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KellerhoffModel.tbl_Recall" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
