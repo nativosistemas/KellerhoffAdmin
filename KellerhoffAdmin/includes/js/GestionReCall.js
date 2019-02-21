@@ -36,7 +36,7 @@ function OnCallBackRecuperarTodosReCall(args) {
                 strHtml += '<button type="button" class="btn btn-warning" onclick="return EditarReCall(\'' + args[i].rec_id + '\');">Modificar</button>' + '&nbsp;' + '&nbsp;';
                 strHtml += '<button type="button" class="btn btn-danger" onclick="return EliminarReCall(\'' + args[i].rec_id + '\');">Eliminar</button>' + '&nbsp;' + '&nbsp;';
                 //strHtml += '<button type="button" class="btn btn-info" onclick="return AgregarOfertaImagen(\'' + args[i].ofe_idOferta + '\');">Imagen</button>' + '&nbsp;' + '&nbsp;';
-                //strHtml += '<button type="button" class="btn btn-info" onclick="return AgregarOfertaFolleto(\'' + args[i].ofe_idOferta + '\');">Folleto</button>' + '&nbsp;' + '&nbsp;';
+                strHtml += '<button type="button" class="btn btn-info" onclick="return AgregarReCallFolleto(\'' + args[i].rec_id + '\');">Documento</button>' + '&nbsp;' + '&nbsp;';
                 //strHtml += '<button type="button" class="btn btn-warning" onclick="return IrVistaPreviaId(\'' + args[i].ofe_idOferta + '\');">Vista Previa</button>';  //
                 strHtml += '</td>';
 
@@ -52,8 +52,12 @@ function OnCallBackRecuperarTodosReCall(args) {
         }
     }
 }
+function AgregarReCallFolleto(pValor) {
+    location.href = 'AgregarArchivoGenerico.aspx?id=' + pValor + '&t=recallpdf';
+    return false;
+}
 function AgregarReCall() {
-    location.href = 'GestionReCallAgregar.aspx';
+    location.href = 'GestionReCallAgregar.aspx?id=0';
     return false;
 }
 function EditarReCall(pValor) {
@@ -73,4 +77,23 @@ function EliminarReCall(pValor) {
 }
 function OnCallBackEliminarReCall(args) {
     location.href = 'GestionReCall.aspx';
+}
+
+function GuardarReCall() {
+    var titulo = $('#txt_titulo').val();
+    
+    var descr = $('#textareaHtml').val();
+
+    var FechaNoticia_string = $('#txt_fecha').val();
+
+    PageMethods.InsertarActualizarReCall(titulo, descr, FechaNoticia_string, OnCallBackInsertarActualizarReCall, OnFailInsertarActualizarReCall);
+
+}
+function VolverReCall() {
+    location.href = 'GestionReCall.aspx';
+    return false;
+}
+function OnFailInsertarActualizarReCall(er) { VolverReCall(); }
+function OnCallBackInsertarActualizarReCall(args) {
+    VolverReCall();
 }

@@ -147,6 +147,9 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
                         case "ofertaspdf":
                             Response.Redirect("GestionOferta.aspx");
                             break;
+                        case "recallpdf":
+                            Response.Redirect("GestionReCall.aspx");
+                            break;
                         case "popup":
                             //WebService.ActualizarImagenHomeSlide(obj.id, obj.codRecurso, obj.ancho == 700 ? 2 : 1);
                             cThumbnail.obtenerImagen(obj.tipo, nombreFinal, "1024", "768", "", false);
@@ -184,6 +187,9 @@ public partial class admin_pages_AgregarArchivoGenerico : cBaseAdmin
                 {
                     case "ofertaspdf":
                         Response.Redirect("GestionOferta.aspx");
+                        break;
+                    case "recallpdf":
+                        Response.Redirect("GestionReCall.aspx");
                         break;
                     case "popup":
                        // WebService.ActualizarImagenHomeSlide(obj.id, obj.codRecurso, obj.ancho == 700 ? 2 : 1);

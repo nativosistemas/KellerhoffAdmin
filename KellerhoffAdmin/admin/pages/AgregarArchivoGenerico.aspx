@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../includes/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="../../includes/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../includes/js/AgregarArchivoGenerico.js?n=3" type="text/javascript"></script>
+    <script src="../../includes/js/AgregarArchivoGenerico.js?n=4" type="text/javascript"></script>
     <script type="text/javascript">
 
 </script>

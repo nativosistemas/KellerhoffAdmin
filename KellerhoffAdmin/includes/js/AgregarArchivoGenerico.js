@@ -99,6 +99,9 @@ function onclickVolverAgregarArchivo() {
         case 'ofertaspdf':
             location.href = 'GestionOferta.aspx';
             break;
+        case 'recallpdf':
+            location.href = 'GestionReCall.aspx';
+            break;
         case 'popup':
             location.href = 'GestionPopUp.aspx';
             break;
