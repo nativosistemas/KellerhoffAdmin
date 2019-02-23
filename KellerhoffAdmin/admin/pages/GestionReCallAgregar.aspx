@@ -21,6 +21,15 @@
            } else {
                $('#txt_titulo').val(titulo);
            }
+
+           
+           var descrReducido = $('#hidden_descrReducido').val();
+           if (typeof descrReducido == 'undefined') {
+               descrReducido = null;
+           } else {
+               $('#txt_descripcionReducido').val(descrReducido);
+           }
+
            var varHtml = $('#hidden_descr').val();
            if (typeof varHtml == 'undefined') {
                varHtml = '';
@@ -54,15 +63,20 @@
         <label for="txt_titulo">Título:</label>
         <input type="text" class="form-control" id="txt_titulo"  />
     </div>
-    <div class="form-group">
-       <label for="txtHtml">Descrición:</label>
-        <textarea id="textareaHtml" class="textarea" placeholder="" style="width: 100%; height: 200px"></textarea>
-    </div>
-    <div class="form-group">
+        <div class="form-group">
         <label for="txt_fecha">Fecha de noticia:</label>
        <%-- <input type="date" class="form-control" id="txt_fecha" name="txt_fecha" />--%>
         <input type="text" class="form-control" id="txt_fecha"  />
     </div>
+        <div class="form-group">
+        <label for="txt_descripcionReducido">Descrición Reducido:</label>
+        <textarea id="txt_descripcionReducido" class="textarea" placeholder="" style="width: 100%; height: 150px"></textarea>
+    </div>
+    <div class="form-group">
+       <label for="txtHtml">Descrición:</label>
+        <textarea id="textareaHtml" class="textarea" placeholder="" style="width: 100%; height: 200px"></textarea>
+    </div>
+
      <%  AgregarHtmlOculto(); %>
 
      <script type="text/javascript">

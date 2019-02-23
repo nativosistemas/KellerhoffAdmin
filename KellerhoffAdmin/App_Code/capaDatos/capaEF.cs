@@ -239,7 +239,7 @@ public class capaEF
             if (rec_id == 0)
             {
                 o = ctx.tbl_Recall.Create();
-                o.rec_visible = false;
+                o.rec_visible = true;
             }
             else
                 o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);

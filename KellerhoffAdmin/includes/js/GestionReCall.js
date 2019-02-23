@@ -83,11 +83,16 @@ function GuardarReCall() {
     var titulo = $('#txt_titulo').val();
     
     var descr = $('#textareaHtml').val();
+    var descrReducido = $('#txt_descripcionReducido').val();
 
     var FechaNoticia_string = $('#txt_fecha').val();
+    if (isNotNullEmpty(descr) && isNotNullEmpty(titulo) && isNotNullEmpty(descrReducido) && isNotNullEmpty(titulo)) {
 
-    PageMethods.InsertarActualizarReCall(titulo, descr, FechaNoticia_string, OnCallBackInsertarActualizarReCall, OnFailInsertarActualizarReCall);
-
+        PageMethods.InsertarActualizarReCall(titulo, descr, descrReducido, FechaNoticia_string, OnCallBackInsertarActualizarReCall, OnFailInsertarActualizarReCall);
+    }
+    else {
+        alert('Complete todos los campos');
+    }
 }
 function VolverReCall() {
     location.href = 'GestionReCall.aspx';

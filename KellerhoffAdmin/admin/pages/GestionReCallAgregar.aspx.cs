@@ -25,7 +25,7 @@ public partial class admin_pages_GestionReCallAgregar : cBaseAdmin
         }
     }
     [WebMethod(EnableSession = true)]
-    public static string InsertarActualizarReCall(string titulo, string descr, string FechaNoticia_string)
+    public static string InsertarActualizarReCall(string titulo, string descr, string descrReducido, string FechaNoticia_string)
     {
         if (HttpContext.Current.Session["GestionReCallAgregar_id"] != null)
         {
@@ -34,7 +34,7 @@ public partial class admin_pages_GestionReCallAgregar : cBaseAdmin
             {
                 FechaNoticia = Convert.ToDateTime(FechaNoticia_string);
             }
-            bool? resultado = WebService.InsertarActualizarReCall(Convert.ToInt32(HttpContext.Current.Session["GestionReCallAgregar_id"]), titulo, descr, "","", FechaNoticia, null);
+            bool? resultado = WebService.InsertarActualizarReCall(Convert.ToInt32(HttpContext.Current.Session["GestionReCallAgregar_id"]), titulo, descr, descrReducido,"", FechaNoticia, null);
         }
         return "";
     }
@@ -49,6 +49,7 @@ public partial class admin_pages_GestionReCallAgregar : cBaseAdmin
 
             resultado += "<input type=\"hidden\" id=\"hidden_titulo\" value=\"" + Server.HtmlEncode(o.rec_titulo) + "\" />";
             resultado += "<input type=\"hidden\" id=\"hidden_descr\" value=\"" + Server.HtmlEncode(o.rec_descripcion) + "\" />";
+            resultado += "<input type=\"hidden\" id=\"hidden_descrReducido\" value=\"" + Server.HtmlEncode(o.rec_descripcionReducido) + "\" />";
             resultado += "<input type=\"hidden\" id=\"hidden_FechaNoticia\" value=\"" + Server.HtmlEncode(o.rec_FechaNoticia == null ? "" : o.rec_FechaNoticia.Value.ToString("dd'/'MM'/'yyyy")) + "\" />";
 
         }
