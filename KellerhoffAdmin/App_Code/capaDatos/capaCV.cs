@@ -19,7 +19,11 @@ public class cCurriculumVitae
     public string tcv_fechaToString { get; set; }
     public int tcv_estado { get; set; }
     public string tcv_estadoToString { get; set; }
-
+    public string tcv_puesto { get; set; }
+    public string tcv_sucursal { get; set; }
+    public DateTime tcv_fechaPresentacion { get; set; }
+    public string tcv_fechaPresentacionToString { get; set; }
+    public string arc_nombre { get; set; }
 }
 /// <summary>
 /// Summary description for capaCV
@@ -32,7 +36,7 @@ public class capaCV
     //    // TODO: Add constructor logic here
     //    //
     //}
-    public static DataSet GestiónCurriculumVitae(int? tcv_codCV, DateTime? tcv_fecha, string tcv_nombre, string tcv_comentario, string tcv_mail, string tcv_dni, int? tcv_estado, string filtro, string accion)
+    public static DataSet GestiónCurriculumVitae(int? tcv_codCV, DateTime? tcv_fecha, string tcv_nombre, string tcv_comentario, string tcv_mail, string tcv_dni, int? tcv_estado, string filtro, string accion, string tcv_puesto, string tcv_sucursal, DateTime? tcv_fechaPresentacion)
     {
         SqlConnection Conn = new SqlConnection(accesoBD.ObtenerConexión());
         SqlCommand cmdComandoInicio = new SqlCommand("spCurriculumVitae", Conn);
@@ -47,6 +51,37 @@ public class capaCV
         SqlParameter paTcv_estado = cmdComandoInicio.Parameters.Add("@tcv_estado", SqlDbType.Int);
         SqlParameter paFiltro = cmdComandoInicio.Parameters.Add("@filtro", SqlDbType.NVarChar, 50);
         SqlParameter paAccion = cmdComandoInicio.Parameters.Add("@accion", SqlDbType.NVarChar, 50);
+
+        SqlParameter paTcv_puesto = cmdComandoInicio.Parameters.Add("@tcv_puesto", SqlDbType.NVarChar, 500);
+        SqlParameter paTcv_sucursal = cmdComandoInicio.Parameters.Add("@tcv_sucursal", SqlDbType.NVarChar, 500);
+        SqlParameter paTcv_fechaPresentacion = cmdComandoInicio.Parameters.Add("@tcv_fechaPresentacion", SqlDbType.DateTime);
+
+        if (tcv_puesto == null)
+        {
+            paTcv_puesto.Value = DBNull.Value;
+        }
+        else
+        {
+            paTcv_puesto.Value = tcv_puesto;
+        }
+        if (tcv_sucursal == null)
+        {
+            paTcv_sucursal.Value = DBNull.Value;
+        }
+        else
+        {
+            paTcv_sucursal.Value = tcv_sucursal;
+        }
+        if (tcv_fechaPresentacion == null)
+        {
+            paTcv_fechaPresentacion.Value = DBNull.Value;
+        }
+        else
+        {
+            paTcv_fechaPresentacion.Value = tcv_fechaPresentacion;
+        }
+        ////
+
 
         if (tcv_codCV == null)
         {

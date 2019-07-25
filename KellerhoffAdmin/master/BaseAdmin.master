@@ -82,7 +82,7 @@
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionContacto.aspx" Text="Contacto" />
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionCatalogo.aspx" Text="Catálogo" />
-                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionCurriculumVitae.aspx" Text="Curriculum Vitae" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionCurriculumVitae_v2.aspx" Text="Curriculum Vitae" />
                             <asp:MenuItem Text="Ofertas">
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionOferta.aspx" Text="Ofertas" />
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionOfertaHome.aspx" Text="Ofertas Home" />

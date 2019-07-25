@@ -4048,6 +4048,37 @@ public class WebService : System.Web.Services.WebService
         {
             obj.tcv_estadoToString = Convert.ToString(pItem["est_nombre"]);
         }
+        if (pItem["tcv_puesto"] != DBNull.Value)
+        {
+            obj.tcv_puesto = Convert.ToString(pItem["tcv_puesto"]);
+        }
+        else
+        {
+            obj.tcv_puesto = "";
+        }
+        if (pItem["tcv_sucursal"] != DBNull.Value)
+        {
+            obj.tcv_sucursal = Convert.ToString(pItem["tcv_sucursal"]);
+        }
+        else
+        {
+            obj.tcv_sucursal = "";
+        }
+        if (pItem["tcv_fechaPresentacion"] != DBNull.Value)
+        {
+            obj.tcv_fechaPresentacion = Convert.ToDateTime(pItem["tcv_fechaPresentacion"]);
+            obj.tcv_fechaPresentacionToString = ((DateTime)obj.tcv_fechaPresentacion).ToString();
+        }
+        List<SitioBase.capaDatos.cArchivo> listaArchivo = WebService.RecuperarTodosArchivos(obj.tcv_codCV, Constantes.cTABLA_CV, string.Empty);
+        if (listaArchivo != null)
+        {
+            if (listaArchivo.Count > 0)
+            {
+                obj.arc_nombre = listaArchivo[0].arc_nombre;
+                // lbl_archivo.Text = "<div><a href=\"../../servicios/descargarArchivo.aspx?t=" + Constantes.cTABLA_CV + "&n=" + listaArchivo[0].arc_nombre + "\" >" + listaArchivo[0].arc_nombre + "</a>&nbsp; </div>";
+            }
+        }
+
         return obj;
     }
     public static int InsertarCurriculumVitae(string tcv_nombre, string tcv_comentario, string tcv_mail, string tcv_dni)
@@ -4055,7 +4086,7 @@ public class WebService : System.Web.Services.WebService
         int resultado = 0;
         string accion = Constantes.cSQL_INSERT;
         int codigoEstado = Constantes.cESTADO_SINLEER;
-        DataSet dsResultado = capaCV.GestiónCurriculumVitae(null, DateTime.Now, tcv_nombre, tcv_comentario, tcv_mail, tcv_dni, codigoEstado, null, accion);
+        DataSet dsResultado = capaCV.GestiónCurriculumVitae(null, DateTime.Now, tcv_nombre, tcv_comentario, tcv_mail, tcv_dni, codigoEstado, null, accion, null, null, null);
         if (dsResultado != null)
         {
             if (dsResultado.Tables.Contains("CurriculumVitae"))
@@ -4107,7 +4138,7 @@ public class WebService : System.Web.Services.WebService
     {
         cCurriculumVitae resultado = null;
         string accion = Constantes.cSQL_SELECT;
-        DataSet dsResultado = capaCV.GestiónCurriculumVitae(pId, null, null, null, null, null, null, null, accion);
+        DataSet dsResultado = capaCV.GestiónCurriculumVitae(pId, null, null, null, null, null, null, null, accion, null, null, null);
         if (dsResultado != null)
         {
             if (dsResultado.Tables.Contains("CurriculumVitae"))
@@ -4125,7 +4156,7 @@ public class WebService : System.Web.Services.WebService
     {
         List<cCurriculumVitae> resultado = null;
         string accion = Constantes.cSQL_SELECT;
-        DataSet dsResultado = capaCV.GestiónCurriculumVitae(null, null, null, null, null, null, null, pFiltro, accion);
+        DataSet dsResultado = capaCV.GestiónCurriculumVitae(null, null, null, null, null, null, null, pFiltro, accion, null, null, null);
         if (dsResultado != null)
         {
             resultado = new List<cCurriculumVitae>();
@@ -4142,12 +4173,12 @@ public class WebService : System.Web.Services.WebService
     public static void EliminarCurriculumVitae(int tcv_codCV)
     {
         string accion = Constantes.cSQL_DELETE;
-        DataSet dsResultado = capaCV.GestiónCurriculumVitae(tcv_codCV, null, null, null, null, null, null, null, accion);
+        DataSet dsResultado = capaCV.GestiónCurriculumVitae(tcv_codCV, null, null, null, null, null, null, null, accion, null, null, null);
     }
     public static void CambiarEstadoCurriculumVitae(int tcv_codCV, int tcv_estado)
     {
         string accion = Constantes.cSQL_ESTADO;
-        DataSet dsResultado = capaCV.GestiónCurriculumVitae(tcv_codCV, null, null, null, null, null, tcv_estado, null, accion);
+        DataSet dsResultado = capaCV.GestiónCurriculumVitae(tcv_codCV, null, null, null, null, null, tcv_estado, null, accion, null, null, null);
     }
 
     //////////
@@ -5246,7 +5277,7 @@ public class WebService : System.Web.Services.WebService
     public static bool? InsertarActualizarReCall(int rec_id, string rec_titulo, string rec_descripcion, string rec_descripcionReducido, string rec_descripcionHTML, DateTime? rec_FechaNoticia, DateTime? rec_FechaFinNoticia)
     {
         if (VerificarPermisos(CredencialAutenticacion))
-            return capaEF.InsertarActualizarReCall(rec_id,  rec_titulo,  rec_descripcion,  rec_descripcionReducido,  rec_descripcionHTML,  rec_FechaNoticia,  rec_FechaFinNoticia);
+            return capaEF.InsertarActualizarReCall(rec_id, rec_titulo, rec_descripcion, rec_descripcionReducido, rec_descripcionHTML, rec_FechaNoticia, rec_FechaFinNoticia);
         return null;
     }
     public static List<tbl_Recall> RecuperarTodaReCall()

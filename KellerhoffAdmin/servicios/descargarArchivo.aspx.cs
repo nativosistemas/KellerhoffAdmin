@@ -21,10 +21,10 @@ public partial class servicios_descargarArchivo : System.Web.UI.Page
             if (toDownload.Exists)
             {
                 Response.Clear();
-                Response.AddHeader("Content-Disposition", "attachment; filename=" + toDownload.Name);
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + toDownload.Name.Replace(" ","_"));
                 Response.AddHeader("Content-Length", toDownload.Length.ToString());
-                //string contentType_aux = MimeMapping.GetMimeMapping(path);
-                //Response.ContentType = contentType_aux;// Constantes.cMIME_pdf;
+                string contentType_aux = MimeTypes.MimeTypeMap.GetMimeType(toDownload.Extension);//= System.Web.MimeMapping.GetMimeMapping(path);
+                Response.ContentType = contentType_aux;// Constantes.cMIME_pdf;
 
                 try
                 {
