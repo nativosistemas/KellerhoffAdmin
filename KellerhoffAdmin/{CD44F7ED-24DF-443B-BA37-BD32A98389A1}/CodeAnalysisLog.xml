@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
-<FxCopReport Version="15.0">
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
  <Targets>
-  <Target Name="C:\Users\soft8\AppData\Local\Temp\tmp16AE.tmp.cadir\bin\App_Code.dll">
+  <Target Name="C:\Users\nativ\AppData\Local\Temp\tmp783.tmp.cadir\bin\App_Code.dll">
    <Modules>
     <Module Name="app_code.dll">
      <Namespaces>
@@ -12,8 +12,8 @@
          <Members>
           <Member Name="#GetWorkSheet(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2019-06-30 21:32:44Z" FixCategory="DependsOnFix">
-             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\soft8\Source\repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="ArchivoExcel.cs" Line="44">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'LinqToExcelProvider.GetWorkSheet(string)' podría contener las siguientes variables: 'sheetName'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-03-31 04:44:45Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\nativ\OneDrive\Repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="ArchivoExcel.cs" Line="44">La cadena de consulta pasada a 'OleDbDataAdapter.OleDbDataAdapter(string, string)' en 'LinqToExcelProvider.GetWorkSheet(string)' podría contener las siguientes variables: 'sheetName'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -27,9 +27,9 @@
          <Members>
           <Member Name="#grabarLog(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-06-30 21:32:44Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="c:\Users\soft8\Source\repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="AccesoDisco.cs" Line="60">El objeto 'sw' admite Dispose más de una vez en el método 'AccesoDisco.grabarLog(string, string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 60</Issue>
-             <Issue Certainty="75" Level="Warning" Path="c:\Users\soft8\Source\repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="AccesoDisco.cs" Line="68">El objeto 'sw' admite Dispose más de una vez en el método 'AccesoDisco.grabarLog(string, string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 68</Issue>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2020-03-31 04:44:45Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\nativ\OneDrive\Repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="AccesoDisco.cs" Line="60">El objeto 'sw' admite Dispose más de una vez en el método 'AccesoDisco.grabarLog(string, string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 60</Issue>
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\nativ\OneDrive\Repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="AccesoDisco.cs" Line="68">El objeto 'sw' admite Dispose más de una vez en el método 'AccesoDisco.grabarLog(string, string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 68</Issue>
             </Message>
            </Messages>
           </Member>
@@ -39,8 +39,8 @@
          <Members>
           <Member Name="#DeserializarJson`1(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2019-06-30 21:32:44Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="c:\Users\soft8\Source\repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="Serializador.cs" Line="74">El objeto 'ms' admite Dispose más de una vez en el método 'Serializador.DeserializarJson&lt;T&gt;(this string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 74</Issue>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2020-03-31 04:44:45Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\nativ\OneDrive\Repos\KellerhoffAdmin\KellerhoffAdmin\App_Code\clases\Generales" File="Serializador.cs" Line="74">El objeto 'ms' admite Dispose más de una vez en el método 'Serializador.DeserializarJson&lt;T&gt;(this string)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 74</Issue>
             </Message>
            </Messages>
           </Member>
@@ -62,7 +62,7 @@
    <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
    <Email />
    <MessageLevel Certainty="75">Warning</MessageLevel>
-   <File Name="dataflowrules.dll" Version="15.0.0.0" />
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
   </Rule>
   <Rule TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100">
    <Name>Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad</Name>
@@ -72,7 +72,7 @@
    <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
    <Email />
    <MessageLevel Certainty="75">Warning</MessageLevel>
-   <File Name="dataflowrules.dll" Version="15.0.0.0" />
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
   </Rule>
  </Rules>
  <Localized>

@@ -457,6 +457,8 @@ namespace SitioBase.clases
         }
         public static List<cMensaje> GetMensajes(string sortExpression, string pFiltro)
         {
+            if (string.IsNullOrEmpty(sortExpression))
+                sortExpression = "tme_fechaToString DESC";
             ordenamientoExpresion order = new ordenamientoExpresion(sortExpression);
             string filtro = string.Empty;
             if (pFiltro != null)
