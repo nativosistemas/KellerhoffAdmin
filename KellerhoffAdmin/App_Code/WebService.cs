@@ -5284,6 +5284,114 @@ public class WebService : System.Web.Services.WebService
     {
         return capaEF.RecuperarTodaReCall();
     }
+    //
+    private static cMensajeNew ConvertToMensajeNew(DataRow pItem)
+    {
+        cMensajeNew obj = new cMensajeNew();
+        if (pItem["tmn_codigo"] != DBNull.Value)
+        {
+            obj.tmn_codigo = Convert.ToInt32(pItem["tmn_codigo"]);
+        }
+        if (pItem["tmn_fecha"] != DBNull.Value)
+        {
+            obj.tmn_fecha = Convert.ToDateTime(pItem["tmn_fecha"]);
+            obj.tmn_fechaToString = Convert.ToDateTime(pItem["tmn_fecha"]).ToShortDateString();
+        }
+        if (pItem["tmn_asunto"] != DBNull.Value)
+        {
+            obj.tmn_asunto = pItem["tmn_asunto"].ToString();
+        }
+        if (pItem["tmn_mensaje"] != DBNull.Value)
+        {
+            obj.tmn_mensaje = pItem["tmn_mensaje"].ToString();
+        }
+        if (pItem.Table.Columns.Contains("tmn_importante") && pItem["tmn_importante"] != DBNull.Value)
+        {
+            obj.tmn_importante = Convert.ToBoolean(pItem["tmn_importante"]);
+        }
+        obj.tmn_fechaDesde = null;// DateTime.MinValue;
+        obj.tmn_fechaDesdeToString = string.Empty;
+        if (pItem.Table.Columns.Contains("tmn_fechaDesde") && pItem["tmn_fechaDesde"] != DBNull.Value)
+        {
+            obj.tmn_fechaDesde = Convert.ToDateTime(pItem["tmn_fechaDesde"]);
+            obj.tmn_fechaDesdeToString = ((DateTime)obj.tmn_fechaDesde).ToShortDateString();
+
+        }
+        obj.tmn_fechaHasta = null;//DateTime.MinValue;
+        obj.tmn_fechaHastaToString = string.Empty;
+        if (pItem.Table.Columns.Contains("tmn_fechaHasta") && pItem["tmn_fechaHasta"] != DBNull.Value)
+        {
+            obj.tmn_fechaHasta = Convert.ToDateTime(pItem["tmn_fechaHasta"]);
+            obj.tmn_fechaHastaToString = ((DateTime)obj.tmn_fechaHasta).ToShortDateString();
+
+        }
+        if (obj.tmn_importante)
+        {
+            obj.tmn_importanteToString = "Si";
+        }
+        else
+        {
+            obj.tmn_importanteToString = "No";
+        }
+
+        if (pItem.Table.Columns.Contains("tmn_todosSucursales") && pItem["tmn_todosSucursales"] != DBNull.Value)
+        {
+            obj.tmn_todosSucursales = pItem["tmn_todosSucursales"].ToString();
+        }
+        return obj;
+    }
+    public static List<cMensajeNew> RecuperarTodosMensajeNew()
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            List<cMensajeNew> lista = new List<cMensajeNew>();
+            DataTable tabla = capaMensajeNew.RecuperartTodosMensajes();
+            if (tabla != null)
+            {
+                foreach (DataRow item in tabla.Rows)
+                {
+                    cMensajeNew obj = ConvertToMensajeNew(item);
+                    lista.Add(obj);
+                }
+            }
+            return lista;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    public static cMensajeNew RecuperarMensajeNewPorId(int pIdMensaje)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            DataTable tabla = capaMensajeNew.RecuperarMensajeNewPorId(pIdMensaje);
+            if (tabla != null && tabla.Rows.Count > 0)
+            {
+                cMensajeNew obj = ConvertToMensajeNew(tabla.Rows[0]);
+                return obj;
+            }
+        }
+        return null;
+
+    }
+    public static void ElimimarMensajeNewPorId(int pIdMensaje)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            capaMensajeNew.ElimimarMensajeNewPorId(pIdMensaje);
+        }
+    }
+    public static int ActualizarInsertarMensajeNew(int pIdMensaje, string pAsunto, string pMensaje, DateTime? pFechaDesde, DateTime? pFechaHasta, bool pImportante, string pSucursales)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            return capaMensajeNew.ActualizarInsertarMensajeNew(pIdMensaje, pAsunto, pMensaje, pFechaDesde, pFechaHasta, pImportante, pSucursales);
+        }
+        return -1;
+    }
+    //
+
     public class Autenticacion : SoapHeader
     {
         private string sUserPass;

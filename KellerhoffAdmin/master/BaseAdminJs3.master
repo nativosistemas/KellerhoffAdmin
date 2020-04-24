@@ -22,7 +22,7 @@
     <link href="~/includes/css/abm.css" rel="stylesheet" type="text/css" />
     <script src="../../includes/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css"  href="~/includes/css/jquery-confirm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/includes/css/jquery-confirm.min.css" />
     <script src="../../includes/js/jquery-confirm.min.js" type="text/javascript"></script>
 
     <%--    <script src="../../includes/js/jquery-1.7.2.min.js" type="text/javascript"></script>--%>
@@ -63,7 +63,11 @@
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionRolesYReglas.aspx" Text="Gestión reglas y roles" />
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionProcedimientos.aspx" Text="Procedimientos" />
-                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeNew.aspx" Text="Alertas" />
+                            <%--  <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas" />--%>
+                            <asp:MenuItem Text="Mensajes">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensaje.aspx" Text="Alertas Viejo" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas Nuevo" />
+                            </asp:MenuItem>
                             <asp:MenuItem Text="Productos">
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoDatosExtras.aspx" Text="Productos Datos Extras" />
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoImagen.aspx" Text="Productos Imagenes" />
@@ -93,7 +97,7 @@
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionHomeSlide.aspx" Text="Home Slide" />
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
-                              <asp:MenuItem NavigateUrl="~/admin/pages/GestionReCall.aspx" Text="ReCall" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionReCall.aspx" Text="ReCall" />
                         </Items>
                     </asp:Menu>
                 </div>

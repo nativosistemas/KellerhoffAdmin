@@ -59,7 +59,11 @@
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionRolesYReglas.aspx" Text="Gestión reglas y roles" />
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionProcedimientos.aspx" Text="Procedimientos" />
-                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeNew.aspx" Text="Alertas" />
+                            <%-- <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas" />--%>
+                            <asp:MenuItem Text="Mensajes">
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensaje.aspx" Text="Alertas Viejo" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas Nuevo" />
+                            </asp:MenuItem>
                             <asp:MenuItem Text="Productos">
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoDatosExtras.aspx" Text="Productos Datos Extras" />
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoImagen.aspx" Text="Productos Imagenes" />
@@ -88,8 +92,8 @@
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionOfertaHome.aspx" Text="Ofertas Home" />
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionHomeSlide.aspx" Text="Home Slide" />
-                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
-                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionReCall.aspx" Text="ReCall" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionPopUp.aspx" Text="PopUp" />
+                            <asp:MenuItem NavigateUrl="~/admin/pages/GestionReCall.aspx" Text="ReCall" />
                         </Items>
                     </asp:Menu>
                 </div>
