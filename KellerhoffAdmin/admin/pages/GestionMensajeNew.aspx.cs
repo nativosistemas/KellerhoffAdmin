@@ -38,6 +38,7 @@ public partial class admin_pages_GestionMensajeNew : cBaseAdmin
             if (mensaje.tme_importante)
             {
                 PanelFecha.Visible = checkboxImportante.Checked;
+                //CalendarFechaDesde.
                 CalendarFechaDesde.SelectedDate = (DateTime)mensaje.tme_fechaDesde;
                 CalendarFechaHasta.SelectedDate = (DateTime)mensaje.tme_fechaHasta;
             }

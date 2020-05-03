@@ -547,6 +547,98 @@ namespace SitioBase.clases
             }
             return query;
         }
+        public static List<cMensaje> GetMensajesV4(string sortExpression, string pFiltro)
+        {
+            if (string.IsNullOrEmpty(sortExpression))
+                sortExpression = "tme_fechaToString DESC";
+            ordenamientoExpresion order = new ordenamientoExpresion(sortExpression);
+            string filtro = string.Empty;
+            if (pFiltro != null)
+            {
+                filtro = pFiltro.ToLower();
+            }
+            var query = WebService.RecuperarTodosMensajeNewV4();
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                query = query.Where(x => x.tme_asunto.ToLower().Contains(filtro) || x.tme_mensaje.ToLower().Contains(filtro) || x.cli_nombre.ToLower().Contains(filtro)).ToList();
+            }
+
+            if (order.isOrderBy)
+            {
+                if (order.OrderByAsc)
+                {
+                    switch (order.OrderByField)
+                    {
+                        case "tme_asunto":
+                            query = query.OrderBy(b => b.tme_asunto).ToList();
+                            break;
+                        case "tme_mensaje":
+                            query = query.OrderBy(b => b.tme_mensaje).ToList();
+                            break;
+                        case "cli_nombre":
+                            query = query.OrderBy(b => b.cli_nombre).ToList();
+                            break;
+                        case "est_nombre":
+                            query = query.OrderBy(b => b.est_nombre).ToList();
+                            break;
+                        case "tme_fecha":
+                            query = query.OrderBy(b => b.tme_fecha).ToList();
+                            break;
+                        case "tme_fechaToString":
+                            query = query.OrderBy(b => b.tme_fechaToString).ToList();
+                            break;
+                        case "tme_fechaDesdeToString":
+                            query = query.OrderBy(b => (DateTime)b.tme_fechaDesde).ToList();
+                            break;
+                        case "tme_fechaHastaToString":
+                            query = query.OrderBy(b => (DateTime)b.tme_fechaHasta).ToList();
+                            break;
+                        case "tme_importanteToString":
+                            query = query.OrderBy(b => b.tme_importanteToString).ToList();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (order.OrderByField)
+                    {
+                        case "tme_asunto":
+                            query = query.OrderByDescending(b => b.tme_asunto).ToList();
+                            break;
+                        case "tme_mensaje":
+                            query = query.OrderByDescending(b => b.tme_mensaje).ToList();
+                            break;
+                        case "cli_nombre":
+                            query = query.OrderByDescending(b => b.cli_nombre).ToList();
+                            break;
+                        case "est_nombre":
+                            query = query.OrderByDescending(b => b.est_nombre).ToList();
+                            break;
+                        case "tme_fecha":
+                            query = query.OrderByDescending(b => b.tme_fecha).ToList();
+                            break;
+                        case "tme_fechaToString":
+                            query = query.OrderByDescending(b => b.tme_fechaToString).ToList();
+                            break;
+                        case "tme_fechaDesdeToString":
+                            query = query.OrderByDescending(b => (DateTime)b.tme_fechaDesde).ToList();
+                            break;
+                        case "tme_fechaHastaToString":
+                            query = query.OrderByDescending(b => (DateTime)b.tme_fechaHasta).ToList();
+                            break;
+                        case "tme_importanteToString":
+                            query = query.OrderByDescending(b => b.tme_importanteToString).ToList();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            return query;
+        }
         public static List<cHistorialProcesos> GetHistorialProcesos(string sortExpression, string pFiltro)
         {
             ordenamientoExpresion order = new ordenamientoExpresion(sortExpression);

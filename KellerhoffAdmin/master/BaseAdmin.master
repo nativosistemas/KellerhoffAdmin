@@ -61,8 +61,9 @@
                             <asp:MenuItem NavigateUrl="~/admin/pages/GestionProcedimientos.aspx" Text="Procedimientos" />
                             <%-- <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas" />--%>
                             <asp:MenuItem Text="Mensajes">
-                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensaje.aspx" Text="Alertas Viejo" />
-                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas Nuevo" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeNew.aspx" Text="Alertas Viejo" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeV3.aspx" Text="Alertas Nuevo Versión 1" />
+                                <asp:MenuItem NavigateUrl="~/admin/pages/GestionMensajeNewV4.aspx" Text="Alertas Nuevo Versión 2" />
                             </asp:MenuItem>
                             <asp:MenuItem Text="Productos">
                                 <asp:MenuItem NavigateUrl="~/admin/pages/GestionProductoDatosExtras.aspx" Text="Productos Datos Extras" />

@@ -5340,6 +5340,96 @@ public class WebService : System.Web.Services.WebService
         }
         return obj;
     }
+    private static cMensaje ConvertToMensajeNewV4(DataRow pItem)
+    {
+        cMensaje obj = new cMensaje();
+        if (pItem["tmn_codigo"] != DBNull.Value)
+        {
+            obj.tme_codigo = Convert.ToInt32(pItem["tmn_codigo"]);
+        }
+        if (pItem["tmn_fecha"] != DBNull.Value)
+        {
+            obj.tme_fecha = Convert.ToDateTime(pItem["tmn_fecha"]);
+            obj.tme_fechaToString = Convert.ToDateTime(pItem["tmn_fecha"]).ToShortDateString();
+        }
+        if (pItem["tmn_asunto"] != DBNull.Value)
+        {
+            obj.tme_asunto = pItem["tmn_asunto"].ToString();
+        }
+        if (pItem["tmn_mensaje"] != DBNull.Value)
+        {
+            obj.tme_mensaje = pItem["tmn_mensaje"].ToString();
+        }
+        if (pItem.Table.Columns.Contains("tmn_importante") && pItem["tmn_importante"] != DBNull.Value)
+        {
+            obj.tme_importante = Convert.ToBoolean(pItem["tmn_importante"]);
+        }
+        obj.tme_fechaDesde = null;// DateTime.MinValue;
+        obj.tme_fechaDesdeToString = string.Empty;
+        if (pItem.Table.Columns.Contains("tmn_fechaDesde") && pItem["tmn_fechaDesde"] != DBNull.Value)
+        {
+            obj.tme_fechaDesde = Convert.ToDateTime(pItem["tmn_fechaDesde"]);
+            obj.tme_fechaDesdeToString = ((DateTime)obj.tme_fechaDesde).ToShortDateString();
+
+        }
+        obj.tme_fechaHasta = null;//DateTime.MinValue;
+        obj.tme_fechaHastaToString = string.Empty;
+        if (pItem.Table.Columns.Contains("tmn_fechaHasta") && pItem["tmn_fechaHasta"] != DBNull.Value)
+        {
+            obj.tme_fechaHasta = Convert.ToDateTime(pItem["tmn_fechaHasta"]);
+            obj.tme_fechaHastaToString = ((DateTime)obj.tme_fechaHasta).ToShortDateString();
+
+        }
+        if (obj.tme_importante)
+        {
+            obj.tme_importanteToString = "Si";
+        }
+        else
+        {
+            obj.tme_importanteToString = "No";
+        }
+
+        if (pItem.Table.Columns.Contains("tmn_todosSucursales") && pItem["tmn_todosSucursales"] != DBNull.Value)
+        {
+            obj.tmn_todosSucursales = pItem["tmn_todosSucursales"].ToString();
+        }
+        return obj;
+    }
+    public static cMensaje RecuperarMensajeNewV4PorId(int pIdMensaje)
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            DataTable tabla = capaMensajeNew.RecuperarMensajeNewPorId(pIdMensaje);
+            if (tabla != null && tabla.Rows.Count > 0)
+            {
+                cMensaje obj = ConvertToMensajeNewV4(tabla.Rows[0]);
+                return obj;
+            }
+        }
+        return null;
+
+    }
+    public static List<cMensaje> RecuperarTodosMensajeNewV4()
+    {
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            List<cMensaje> lista = new List<cMensaje>();
+            DataTable tabla = capaMensajeNew.RecuperartTodosMensajes();
+            if (tabla != null)
+            {
+                foreach (DataRow item in tabla.Rows)
+                {
+                    cMensaje obj = ConvertToMensajeNewV4(item);
+                    lista.Add(obj);
+                }
+            }
+            return lista;
+        }
+        else
+        {
+            return null;
+        }
+    }
     public static List<cMensajeNew> RecuperarTodosMensajeNew()
     {
         if (VerificarPermisos(CredencialAutenticacion))

@@ -27,6 +27,7 @@ public class cMensaje
     public bool tme_importante { get; set; }
     public string tme_importanteToString { get; set; }
     public int? tme_todosSucursales { get; set; }
+    public string tmn_todosSucursales { get; set; }
 }
 public class cMensajeNew
 {
