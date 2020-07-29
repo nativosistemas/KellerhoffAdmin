@@ -192,7 +192,6 @@ function VolverOferta() {
     return false;
 }
 function IrVistaPrevia() {
-    //location.href = '../../home/index.aspx';
     window.open(
   '../../home/index.aspx',
   '_blank' // <- This is what makes it open in a new window.
@@ -200,9 +199,9 @@ function IrVistaPrevia() {
     return false;
 }
 function IrVistaPreviaId(pId) {
-    //location.href = '../../home/index.aspx';
     window.open(
-  '../../home/vistapreviaoferta.aspx?id=' + pId,
+ // '../../home/vistapreviaoferta.aspx?id=' + pId,
+    'http://www.kellerhoff.com.ar/home/vistapreviaoferta.aspx?id=' + pId,
   '_blank' // <- This is what makes it open in a new window.
 );
     return false;
