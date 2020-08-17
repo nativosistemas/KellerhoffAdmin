@@ -2,10 +2,12 @@
     CodeFile="GestionTiposEnviosSucursal.aspx.cs" Inherits="admin_pages_GestionTiposEnviosSucursal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+       <script src="../../includes/js/GestionReparto.js?n=0" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="titulo_pagina">
-        Tipos de Envíos por Sucursal</div>
+        Tipos de Envíos por Sucursal
+    </div>
     <asp:UpdateProgress ID="up_prog_0" AssociatedUpdatePanelID="up_general" runat="server">
         <ProgressTemplate>
             <div class="div_loading">
@@ -14,8 +16,7 @@
                         <td>
                             <asp:Image ID="img_loader" runat="server" ImageUrl='~/img/varios/ajax-loader.gif' />
                         </td>
-                        <td>
-                            Espere por favor!
+                        <td>Espere por favor!
                         </td>
                     </tr>
                 </table>
@@ -55,8 +56,15 @@
                             <ItemTemplate>
                                 <asp:ImageButton ID="eliminar" runat="server" ImageUrl="~/img/iconos/delete2.png"
                                     Width="16px" Height="16px" CausesValidation="False" OnClientClick="return confirm('¿Confirma que desea cambiar eliminar?');"
-                                    CommandArgument='<%# Bind("tsd_id") %>' CommandName="Eliminar" ToolTip="Eliminar">
-                                </asp:ImageButton>
+                                    CommandArgument='<%# Bind("tsd_id") %>' CommandName="Eliminar" ToolTip="Eliminar"></asp:ImageButton>
+                            </ItemTemplate>
+                            <ItemStyle Width="20px" HorizontalAlign="center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:ImageButton ID="agregarReparto" runat="server" ImageUrl="~/img/iconos/new.png"
+                                    Width="16px" Height="16px" CausesValidation="False"
+                                    CommandArgument='<%# Bind("tsd_id") %>' CommandName="Reparto" ToolTip="Tipo Envío (excepción)"></asp:ImageButton>
                             </ItemTemplate>
                             <ItemStyle Width="20px" HorizontalAlign="center" />
                         </asp:TemplateField>
@@ -83,28 +91,27 @@
                                     <td>
                                         <img alt="" src='../../img/iconos/document_info.png' width='15' height='15' border='0' />
                                     </td>
-                                    <td class="txt_11">
-                                        Ficha de datos
+                                    <td class="txt_11">Ficha de datos
                                     </td>
                                 </tr>
                             </table>
                         </HeaderTemplate>
                         <ContentTemplate>
-                             <div>
-                                 <asp:Label ID="lblMensajeError" runat="server" Text="" ForeColor="Red"></asp:Label>
-                             </div>
+                            <div>
+                                <asp:Label ID="lblMensajeError" runat="server" Text="" ForeColor="Red"></asp:Label>
+                            </div>
                             <div class="botones_form">
                                 <asp:Button ID="cmd_guardar" runat="server" Text="GUARDAR" CssClass="btn_abm" OnClick="cmd_guardar_Click" />
                                 <asp:Button ID="cmd_cancelar" runat="server" Text="CANCELAR" CssClass="btn_abm" CausesValidation="False"
                                     OnClick="cmd_cancelar_Click" />
                             </div>
-                        
+
                             <div class="form_datos" style="width: 100%;">
                                 <div class="ele_abm">
                                     <div class="lbl_abm">
                                         Sucursal y Sucursal dependiente:
                                     </div>
-                                        <asp:DropDownList ID="cmbSucursalesDependientes" runat="server" DataSourceID="odsSucursalesDependientes" DataTextField="sucursal_sucursalDependiente"
+                                    <asp:DropDownList ID="cmbSucursalesDependientes" runat="server" DataSourceID="odsSucursalesDependientes" DataTextField="sucursal_sucursalDependiente"
                                         DataValueField="sde_codigo" Width="300px">
                                     </asp:DropDownList>
                                     <asp:ObjectDataSource ID="odsSucursalesDependientes" runat="server" SelectMethod="RecuperarTodasSucursalesDependientes"
@@ -116,7 +123,7 @@
                                     <div class="lbl_abm">
                                         Tipo envió cliente:
                                     </div>
-                                   <asp:DropDownList ID="cmbTipoEnvioCliente" runat="server" DataSourceID="odsTipoEnvioCliente" DataTextField="env_nombre"
+                                    <asp:DropDownList ID="cmbTipoEnvioCliente" runat="server" DataSourceID="odsTipoEnvioCliente" DataTextField="env_nombre"
                                         DataValueField="env_id" Width="300px">
                                     </asp:DropDownList>
                                     <asp:ObjectDataSource ID="odsTipoEnvioCliente" runat="server" SelectMethod="RecuperarTodosTiposEnviosParaCombo"
@@ -137,6 +144,22 @@
                                     <br />
                                     <asp:Button ID="btnAgregarTipoEnvio" runat="server" Text="Agregar" OnClick="btnAgregarTipoEnvio_Click" />
                                     <asp:Button ID="btnEliminarTipoEnvio" runat="server" Text="Eliminar" OnClick="btnEliminarTipoEnvio_Click" />
+                                </div>
+                                <div class="ele_sep">
+                                </div>
+                                <div class="ele_abm">
+                                    <div class="lbl_abm">
+                                        Tipo Envío (excepción):
+                                    </div>
+                                    <asp:TreeView ID="TreeView1" runat="server" ShowCheckBoxes="All" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged"></asp:TreeView>
+                                    <%--                       <asp:TreeView ID="TreeView2" runat="server" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged">
+                <Nodes >
+                    <asp:TreeNode ShowCheckBox="True" Text="New Node 1" Value="New Node"  ></asp:TreeNode>
+                    <asp:TreeNode ShowCheckBox="True" Text="New Node 2" Value="New Node"></asp:TreeNode>
+                    <asp:TreeNode ShowCheckBox="True" Text="New Node 3" Value="New Node"></asp:TreeNode>
+                    <asp:TreeNode ShowCheckBox="True" Text="New Node 4" Value="New Node"></asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>--%>
                                 </div>
                                 <div class="ele_sep">
                                 </div>

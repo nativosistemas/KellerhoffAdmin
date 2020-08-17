@@ -4259,6 +4259,41 @@ public class WebService : System.Web.Services.WebService
         }
         return resultado;
     }
+    public static int InsertarEliminarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones(int? pIsEliminar, int? pTdr_idSucursalDependienteTipoEnvioCliente, int? pTdr_idTipoEnvio, String pTdr_codReparto)
+    {
+        int resultado = -1;
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            resultado = capaTiposEnvios.InsertarEliminarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones(pIsEliminar, pTdr_idSucursalDependienteTipoEnvioCliente, pTdr_idTipoEnvio, pTdr_codReparto);
+        }
+        return resultado;
+    }
+    public static List<SitioBase.clases.cCombo> RecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones(int pIdSucursalDependienteTipoEnvioCliente, string pTdr_codReparto)
+    {
+        List<SitioBase.clases.cCombo> resultado = null;// new List<SitioBase.clases.cCombo>();
+        if (VerificarPermisos(CredencialAutenticacion))
+        {
+            DataTable tabla = capaTiposEnvios.RecuperarTipoEnviosExcepcionesPorSucursalDependiente(pIdSucursalDependienteTipoEnvioCliente, pTdr_codReparto);
+            if (tabla != null)
+            {
+                resultado = new List<SitioBase.clases.cCombo>();
+                foreach (DataRow item in tabla.Rows)
+                {
+                    SitioBase.clases.cCombo obj = new SitioBase.clases.cCombo();
+                    if (item["tdr_idTipoEnvio"] != DBNull.Value)
+                    {
+                        obj.id = Convert.ToInt32(item["tdr_idTipoEnvio"]);
+                    }
+                    if (item["env_nombre"] != DBNull.Value)
+                    {
+                        obj.nombre = Convert.ToString(item["env_nombre"]);
+                    }
+                    resultado.Add(obj);
+                }
+            }
+        }
+        return resultado;
+    }
     public static bool EliminarSucursalDependienteTipoEnvioCliente(int pTsd_id)
     {
         bool resultado = false;

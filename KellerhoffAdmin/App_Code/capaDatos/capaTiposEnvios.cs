@@ -6,6 +6,15 @@ using System.Data.SqlClient;
 using System.Data;
 using SitioBase.capaDatos;
 
+public class cTiposEnviosExcepciones
+{
+    public cTiposEnviosExcepciones() { 
+
+           lista = new List<SitioBase.clases.cCombo>();
+    }
+    public string codReparto { get; set; }
+    public List<SitioBase.clases.cCombo> lista { get; set; }  
+}
 public class cTiposEnvios
 {
     public cTiposEnvios()
@@ -263,6 +272,98 @@ public class capaTiposEnvios
         catch (Exception ex)
         {
             return -1;
+        }
+        finally
+        {
+            if (Conn.State == ConnectionState.Open)
+            {
+                Conn.Close();
+            }
+        }
+    }
+    public static int InsertarEliminarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones(int? pTdr_id, int? pTdr_idSucursalDependienteTipoEnvioCliente, int? pTdr_idTipoEnvio,String pTdr_codReparto)
+    {
+        SqlConnection Conn = new SqlConnection(accesoBD.ObtenerConexión());
+        SqlCommand cmdComandoInicio = new SqlCommand("TiposEnvios.spInsertarEliminarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones", Conn);
+        cmdComandoInicio.CommandType = CommandType.StoredProcedure;
+
+        SqlParameter paTdr_id = cmdComandoInicio.Parameters.Add("@tdr_id", SqlDbType.Int);
+        SqlParameter paTdr_idSucursalDependienteTipoEnvioCliente = cmdComandoInicio.Parameters.Add("@tdr_idSucursalDependienteTipoEnvioCliente", SqlDbType.Int);
+        SqlParameter paTdr_idTipoEnvio = cmdComandoInicio.Parameters.Add("@tdr_idTipoEnvio", SqlDbType.Int);
+        SqlParameter paTdr_codReparto = cmdComandoInicio.Parameters.Add("@tdr_codReparto", SqlDbType.NVarChar,2);
+
+        if (pTdr_id == null)
+        {
+            paTdr_id.Value = DBNull.Value;
+        }
+        else
+        {
+            paTdr_id.Value = pTdr_id;
+        }
+        if (pTdr_idSucursalDependienteTipoEnvioCliente == null)
+        {
+            paTdr_idSucursalDependienteTipoEnvioCliente.Value = DBNull.Value;
+        }
+        else
+        {
+            paTdr_idSucursalDependienteTipoEnvioCliente.Value = pTdr_idSucursalDependienteTipoEnvioCliente;
+        }
+        if (pTdr_idTipoEnvio == null)
+        {
+            paTdr_idTipoEnvio.Value = DBNull.Value;
+        }
+        else
+        {
+            paTdr_idTipoEnvio.Value = pTdr_idTipoEnvio;
+        }
+        if (pTdr_codReparto == null)
+        {
+            paTdr_codReparto.Value = DBNull.Value;
+        }
+        else
+        {
+            paTdr_codReparto.Value = pTdr_codReparto;
+        }
+      //  paTdr_codReparto.Value = pTdr_codReparto == null? DBNull.Value: pTdr_codReparto;
+
+        try
+        {
+            Conn.Open();
+            object objResultado = cmdComandoInicio.ExecuteScalar();
+            return Convert.ToInt32(objResultado);
+        }
+        catch (Exception ex)
+        {
+            return -1;
+        }
+        finally
+        {
+            if (Conn.State == ConnectionState.Open)
+            {
+                Conn.Close();
+            }
+        }
+    }
+    public static DataTable RecuperarTipoEnviosExcepcionesPorSucursalDependiente(int pIdSucursalDependienteTipoEnvioCliente,string tdr_codReparto)
+    {
+        SqlConnection Conn = new SqlConnection(accesoBD.ObtenerConexión());
+        SqlCommand cmdComandoInicio = new SqlCommand("TiposEnvios.spRecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones", Conn);
+        cmdComandoInicio.CommandType = CommandType.StoredProcedure;
+        SqlParameter paTdr_idSucursalDependienteTipoEnvioCliente = cmdComandoInicio.Parameters.Add("@tdr_idSucursalDependienteTipoEnvioCliente", SqlDbType.Int);
+        SqlParameter paTdr_codReparto = cmdComandoInicio.Parameters.Add("@tdr_codReparto", SqlDbType.NVarChar,2);
+        paTdr_codReparto.Value = tdr_codReparto;
+        paTdr_idSucursalDependienteTipoEnvioCliente.Value = pIdSucursalDependienteTipoEnvioCliente;
+        try
+        {
+            Conn.Open();
+            DataTable dt = new DataTable();
+            SqlDataReader LectorSQLdata = cmdComandoInicio.ExecuteReader();
+            dt.Load(LectorSQLdata);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            return null;
         }
         finally
         {
