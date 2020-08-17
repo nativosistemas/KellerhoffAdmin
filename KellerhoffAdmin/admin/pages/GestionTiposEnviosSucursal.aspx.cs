@@ -18,24 +18,11 @@ public partial class admin_pages_GestionTiposEnviosSucursal : cBaseAdmin
             Session["GestionTiposEnviosSucursal_Env_id"] = null;
 
 
-            List<cTiposEnvios> l_Envios = WebService.RecuperarTodosTiposEnvios();
-            List<string> l_Reparto = WebService.RecuperarTodosCodigoReparto();
-            for (int i = 0; i < l_Reparto.Count; i++)
-            {
-                TreeView1.Nodes.Add(new TreeNode(l_Reparto[i], l_Reparto[i]));
-                foreach (cTiposEnvios item in l_Envios)
-                {
-                    TreeView1.Nodes[i].ChildNodes.Add(new TreeNode(item.env_nombre ,item.env_id.ToString() ));
-                }
-
-            }
-
         }
     }
     protected void cmd_nuevo_Click(object sender, EventArgs e)
     {
         Session["GestionTiposEnviosSucursal_Env_id"] = 0;
-        LimpiarArbol();
         cmbSucursalesDependientes.SelectedIndex = -1;
         cmbTipoEnvioCliente.SelectedIndex = -1;
         cmbTipoEnvio.SelectedIndex = -1;
@@ -70,22 +57,6 @@ public partial class admin_pages_GestionTiposEnviosSucursal : cBaseAdmin
                     listaTipoEnvio.Add(Convert.ToInt32(item.Value));
                 }
                int codTiposEnviosSucursal_NuevoOrEdicion = WebService.InsertarActualizarSucursalDependienteTipoEnvioCliente(codTiposEnviosSucursal, idSucursalesDependientes, (idTipoEnvioCliente == -1 ? (int?)null : idTipoEnvioCliente), listaTipoEnvio);
-
-                ////
-                //foreach (TreeNode item in TreeView1.Nodes)
-                //{
-                //    foreach (TreeNode itemChild in item.ChildNodes)
-                //    {
-                //        if (itemChild.Checked)
-                //        {
-                //            WebService.InsertarEliminarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones(codTiposEnviosSucursal_NuevoOrEdicion,Convert.ToInt32( itemChild.Value), item.Value);
-                //        }
-                //     }
-                //}
-                //
-
-
-
                 pnl_grilla.Visible = true;
                 pnl_formulario.Visible = false;
                 gv_datos.DataBind();
@@ -111,7 +82,6 @@ public partial class admin_pages_GestionTiposEnviosSucursal : cBaseAdmin
             cSucursalDependienteTipoEnviosCliente obj = WebService.RecuperarTodosSucursalDependienteTipoEnvioCliente().Where(x => x.tsd_id == Convert.ToInt32(e.CommandArgument)).First();
             cmbSucursalesDependientes.SelectedIndex = cmbSucursalesDependientes.Items.IndexOf(cmbSucursalesDependientes.Items.FindByValue(obj.sde_codigo.ToString()));
             cmbTipoEnvioCliente.SelectedIndex = cmbTipoEnvioCliente.Items.IndexOf(cmbTipoEnvioCliente.Items.FindByValue(obj.env_id.ToString()));
-            LimpiarArbol();
             cmbSucursalesDependientes.Enabled = false;
             cmbTipoEnvioCliente.Enabled = false;
             cmbTipoEnvio.SelectedIndex = -1;
@@ -135,26 +105,7 @@ public partial class admin_pages_GestionTiposEnviosSucursal : cBaseAdmin
             Response.Redirect("GestionTiposEnviosSucursal_Reparto.aspx?id=" + e.CommandArgument);
         }
     }
-    private void LimpiarArbol() {
-        foreach (TreeNode item in TreeView1.Nodes)
-        {
-            item.Checked = false;
-            foreach (TreeNode itemChild in item.ChildNodes)
-            {
-                itemChild.Checked = false;
-            }
-        }
-    }
-    protected void TreeView1_TreeNodeCheckChanged(object sender, TreeNodeEventArgs e)
-    {
-        e.Node.Text = e.Node.Text + "(1)";
-        Response.Write("TreeView1_TreeNodeCheckChanged fired.");
-    }
-    protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
-    {
-        
-        Response.Write("TreeView1_TreeNodeCheckChanged fired.");// selectedNode.Text = TreeView1.SelectedNode.Value;
-    }
+ 
     protected void btnAgregarTipoEnvio_Click(object sender, EventArgs e)
     {
         bool isAgregar = true;

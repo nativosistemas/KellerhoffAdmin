@@ -147,22 +147,6 @@
                                 </div>
                                 <div class="ele_sep">
                                 </div>
-                                <div class="ele_abm">
-                                    <div class="lbl_abm">
-                                        Tipo Envío (excepción):
-                                    </div>
-                                    <asp:TreeView ID="TreeView1" runat="server" ShowCheckBoxes="All" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged"></asp:TreeView>
-                                    <%--                       <asp:TreeView ID="TreeView2" runat="server" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged">
-                <Nodes >
-                    <asp:TreeNode ShowCheckBox="True" Text="New Node 1" Value="New Node"  ></asp:TreeNode>
-                    <asp:TreeNode ShowCheckBox="True" Text="New Node 2" Value="New Node"></asp:TreeNode>
-                    <asp:TreeNode ShowCheckBox="True" Text="New Node 3" Value="New Node"></asp:TreeNode>
-                    <asp:TreeNode ShowCheckBox="True" Text="New Node 4" Value="New Node"></asp:TreeNode>
-                </Nodes>
-            </asp:TreeView>--%>
-                                </div>
-                                <div class="ele_sep">
-                                </div>
                             </div>
                         </ContentTemplate>
                     </ajaxToolkit:TabPanel>
