@@ -43,7 +43,13 @@ public partial class admin_pages_GestionTiposEnviosSucursal_Reparto : cBaseAdmin
     [WebMethod(EnableSession = true)]
     public static string RecuperarExcepciones(int pIdSucursalDependienteTipoEnvioCliente, string pTdr_codReparto)
     {
-        List<SitioBase.clases.cCombo> resultado = WebService.RecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones( pIdSucursalDependienteTipoEnvioCliente,  pTdr_codReparto);
+        List<SitioBase.clases.cCombo> resultado = WebService.RecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_Excepciones_paraAdmin(pIdSucursalDependienteTipoEnvioCliente, pTdr_codReparto);
+        return SitioBase.clases.Serializador.SerializarAJson(resultado);
+    }
+    [WebMethod(EnableSession = true)]
+    public static string RecuperarTodasExcepciones(int pIdSucursalDependienteTipoEnvioCliente)
+    {
+        List<cSucursalDependienteTipoEnviosCliente_TiposEnvios> resultado = WebService.RecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_TodasLasExcepciones( pIdSucursalDependienteTipoEnvioCliente);
         return SitioBase.clases.Serializador.SerializarAJson(resultado);
     }
    

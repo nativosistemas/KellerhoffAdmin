@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="../../includes/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="../../includes/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../includes/js/GestionReparto.js?n=0" type="text/javascript"></script>
+    <script src="../../includes/js/GestionReparto.js?n=1" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function () {
             CargarDatosReparto();
@@ -27,8 +27,12 @@
         <label for="txtTipoEnvio">Tipo Envío:</label>
         <div id="divTipoEnvio"></div>
     </div>
-    <div class="form-group">
+        <div class="form-group">
         <label>Excepciones:</label>
+<div id="divExcepciones"></div>
+    </div>
+    <div class="form-group">
+        <label>Excepciones por Código de repartos:</label>
 
     </div>
     <div id="divMasterContenedorGeneralFondo" class="cssContenedorGeneralFondo"></div>

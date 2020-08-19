@@ -60,6 +60,7 @@ public class cSucursalDependienteTipoEnviosCliente_TiposEnvios
     public int env_id { get; set; }
     public string env_codigo { get; set; }
     public string env_nombre { get; set; }
+    public string tdr_codReparto { get; set; }
 }
 public class cCadeteriaRestricciones
 {
@@ -352,6 +353,33 @@ public class capaTiposEnvios
         SqlParameter paTdr_idSucursalDependienteTipoEnvioCliente = cmdComandoInicio.Parameters.Add("@tdr_idSucursalDependienteTipoEnvioCliente", SqlDbType.Int);
         SqlParameter paTdr_codReparto = cmdComandoInicio.Parameters.Add("@tdr_codReparto", SqlDbType.NVarChar,2);
         paTdr_codReparto.Value = tdr_codReparto;
+        paTdr_idSucursalDependienteTipoEnvioCliente.Value = pIdSucursalDependienteTipoEnvioCliente;
+        try
+        {
+            Conn.Open();
+            DataTable dt = new DataTable();
+            SqlDataReader LectorSQLdata = cmdComandoInicio.ExecuteReader();
+            dt.Load(LectorSQLdata);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        finally
+        {
+            if (Conn.State == ConnectionState.Open)
+            {
+                Conn.Close();
+            }
+        }
+    }
+    public static DataTable RecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_TodasLasExcepciones(int pIdSucursalDependienteTipoEnvioCliente)
+    {
+        SqlConnection Conn = new SqlConnection(accesoBD.ObtenerConexión());
+        SqlCommand cmdComandoInicio = new SqlCommand("TiposEnvios.spRecuperarSucursalDependienteTipoEnvioCliente_TipoEnvios_TodasLasExcepciones", Conn);
+        cmdComandoInicio.CommandType = CommandType.StoredProcedure;
+        SqlParameter paTdr_idSucursalDependienteTipoEnvioCliente = cmdComandoInicio.Parameters.Add("@tdr_idSucursalDependienteTipoEnvioCliente", SqlDbType.Int);
         paTdr_idSucursalDependienteTipoEnvioCliente.Value = pIdSucursalDependienteTipoEnvioCliente;
         try
         {

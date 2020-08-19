@@ -56,7 +56,7 @@ function AgregarRepartoExcepcion() {
 
         if (isGrabar) {
             var comboReparto = document.getElementById("cmdCodigoRepartos");
-            
+
             PageMethods.InsertarExcepciones(objSucursalDependienteTipoEnvios.tsd_id, comboTipoEnvio.options[comboTipoEnvio.selectedIndex].value, comboReparto.options[comboReparto.selectedIndex].value, OnCallBackInsertarExcepciones, OnFailExcepcion);
             bloquearPantalla();
             var option = document.createElement("option");
@@ -74,16 +74,17 @@ function EliminarRepartoExcepcion() {
         PageMethods.EliminarExcepciones(objSucursalDependienteTipoEnvios.tsd_id, comboTipoEnvioMostrar.options[comboTipoEnvioMostrar.selectedIndex].value, comboReparto.options[comboReparto.selectedIndex].value, OnCallBackEliminarExcepciones, OnFailExcepcion);
         bloquearPantalla();
         comboTipoEnvioMostrar.remove(comboTipoEnvioMostrar.selectedIndex);
-        
+
     }
     return false;
 
 }
 function bloquearPantalla() {
-
-    var arraySizeDocumento = SizeDocumento();
-    document.getElementById('divMasterContenedorGeneralFondo').style.height = arraySizeDocumento[1] + 'px';
-    document.getElementById('divMasterContenedorGeneralFondo').style.display = 'block';
+    if (document.getElementById('divMasterContenedorGeneralFondo').style.display == 'none') {
+        var arraySizeDocumento = SizeDocumento();
+        document.getElementById('divMasterContenedorGeneralFondo').style.height = arraySizeDocumento[1] + 'px';
+        document.getElementById('divMasterContenedorGeneralFondo').style.display = 'block';
+    }
 }
 function desbloquearPantalla() {
     setTimeout("desbloquearPantalla_basic()", 500);
@@ -95,11 +96,12 @@ function desbloquearPantalla_basic() {
     document.getElementById('divMasterContenedorGeneralFondo').style.display = 'none';
 }
 function OnCallBackEliminarExcepciones(args) {
-    desbloquearPantalla();
+    //desbloquearPantalla();
+    onchangeCodigoRepartos();
 }
-function OnCallBackInsertarExcepciones(args)
-{
-    desbloquearPantalla();
+function OnCallBackInsertarExcepciones(args) {
+    //desbloquearPantalla();
+    onchangeCodigoRepartos();
 }
 function OnFailExcepcion(er) {
     desbloquearPantalla();
@@ -109,20 +111,42 @@ function onchangeCodigoRepartos() {
     PageMethods.RecuperarExcepciones(objSucursalDependienteTipoEnvios.tsd_id, comboReparto.options[comboReparto.selectedIndex].value, OnCallBackRecuperarExcepciones, OnFailExcepcion)
     bloquearPantalla();
 }
-function OnCallBackRecuperarExcepciones(args)
-{
+function OnCallBackRecuperarExcepciones(args) {
     var comboTipoEnvioMostrar = document.getElementById("cmdTipoEnvioMostrar");
     var length = comboTipoEnvioMostrar.options.length;
     for (i = length - 1; i >= 0; i--) {
         comboTipoEnvioMostrar.options[i] = null;
     }
     var listaTemp = eval('(' + args + ')');
-    
+
     for (var i = 0; i < listaTemp.length; i++) {
         var option = document.createElement("option");
         option.text = listaTemp[i].nombre;
         option.value = listaTemp[i].id;
         comboTipoEnvioMostrar.add(option);
     }
+    RecuperarTodasExcepciones();
+}
+
+function RecuperarTodasExcepciones() {
+
+    PageMethods.RecuperarTodasExcepciones(objSucursalDependienteTipoEnvios.tsd_id, OnCallBackRecuperarTodasExcepciones, OnFailExcepcion)
+    //bloquearPantalla();
+    //  desbloquearPantalla();
+}
+function OnCallBackRecuperarTodasExcepciones(args) {
+    var listaTemp = eval('(' + args + ')');
+    var varHtml = '<ul>';
+    for (var i = 0; i < listaTemp.length; i++) {
+        //var option = document.createElement("option");
+        //option.text = listaTemp[i].nombre;
+        //option.value = listaTemp[i].id;
+        //comboTipoEnvioMostrar.add(option);
+        varHtml += '<li>' + listaTemp[i].tdr_codReparto + ' - ' + listaTemp[i].env_nombre + '</li>';
+    }
+    varHtml += '</ul>';
+
+    $('#divExcepciones').html(varHtml);
+
     desbloquearPantalla();
 }
