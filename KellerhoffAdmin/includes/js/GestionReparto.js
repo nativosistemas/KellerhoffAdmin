@@ -142,7 +142,7 @@ function OnCallBackRecuperarTodasExcepciones(args) {
         //option.text = listaTemp[i].nombre;
         //option.value = listaTemp[i].id;
         //comboTipoEnvioMostrar.add(option);
-        varHtml += '<li>' + listaTemp[i].tdr_codReparto + ' - ' + listaTemp[i].env_nombre + '</li>';
+        varHtml += '<li>' + '<strong>' + listaTemp[i].tdr_codReparto + '</strong>' + ' - ' + listaTemp[i].env_nombre + '</li>';
     }
     varHtml += '</ul>';
 
