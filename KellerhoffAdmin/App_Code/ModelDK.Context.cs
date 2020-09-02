@@ -11,10 +11,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-public partial class KellerhoffEntities : DbContext
+public partial class db_KellerhoffEntities : DbContext
 {
-    public KellerhoffEntities()
-        : base("name=KellerhoffEntities")
+    public db_KellerhoffEntities()
+        : base("name=db_KellerhoffEntities")
     {
     }
 
@@ -25,6 +25,5 @@ public partial class KellerhoffEntities : DbContext
 
     public virtual DbSet<tbl_HomeSlide> tbl_HomeSlide { get; set; }
     public virtual DbSet<tbl_Oferta_Rating> tbl_Oferta_Rating { get; set; }
-    public virtual DbSet<tbl_HomeSlide_Rating> tbl_HomeSlide_Rating { get; set; }
     public virtual DbSet<tbl_Recall> tbl_Recall { get; set; }
 }

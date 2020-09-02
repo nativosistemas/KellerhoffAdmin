@@ -32,14 +32,6 @@ public partial class tbl_HomeSlide
     public int hsl_RatingCount { get; set; }
 }
 
-public partial class tbl_HomeSlide_Rating
-{
-    public int hsr_idHomeSlide_Rating { get; set; }
-    public int hsr_idHomeSlide { get; set; }
-    public System.DateTime hsr_fecha { get; set; }
-    public Nullable<int> hsr_idCliente { get; set; }
-}
-
 public partial class tbl_Oferta_Rating
 {
     public int ofr_idOferta_Rating { get; set; }

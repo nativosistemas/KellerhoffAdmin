@@ -21,7 +21,7 @@ public class capaEF
         List<tbl_HomeSlide> resultado = null;
         try
         {
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             resultado = ctx.tbl_HomeSlide.OrderBy(x => x.hsl_orden).ToList();
         }
         catch (Exception ex)
@@ -36,7 +36,7 @@ public class capaEF
         try
         {
             tbl_HomeSlide o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_HomeSlide.FirstOrDefault(x => x.hsl_idHomeSlide == hsl_idHomeSlide);
             if (pTipo == 1)
                 o.hsl_idRecursoImgPC = idRecurso;
@@ -56,7 +56,7 @@ public class capaEF
         {
             tbl_HomeSlide o = null;
 
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
 
             if (hsl_idHomeSlide == 0)
             {
@@ -100,7 +100,7 @@ public class capaEF
         try
         {
             tbl_HomeSlide o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_HomeSlide.FirstOrDefault(x => x.hsl_idHomeSlide == hsl_idHomeSlide);
             ctx.tbl_HomeSlide.Remove(o);
             ctx.SaveChanges();
@@ -119,7 +119,7 @@ public class capaEF
         {
             tbl_HomeSlide o = null;
             tbl_HomeSlide oTemp = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_HomeSlide.FirstOrDefault(x => x.hsl_idHomeSlide == hsl_idHomeSlide);
             if (isSubir)
                 oTemp = ctx.tbl_HomeSlide.Where( x => x.hsl_orden > o.hsl_orden).OrderBy(x => x.hsl_orden).FirstOrDefault();
@@ -148,7 +148,7 @@ public class capaEF
         try
         {
             tbl_HomeSlide o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_HomeSlide.FirstOrDefault(x => x.hsl_idHomeSlide == hsl_idHomeSlide);  
             o.hsl_publicar = !o.hsl_publicar;
             ctx.SaveChanges();
@@ -163,7 +163,7 @@ public class capaEF
         try
         {
             tbl_Oferta_Rating o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();     
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();     
             o = ctx.tbl_Oferta_Rating.Create();
             o.ofr_fecha = DateTime.Now;
             o.ofr_idCliente = ofr_idCliente;
@@ -183,7 +183,7 @@ public class capaEF
     //    try
     //    {
     //        tbl_HomeSlide_Rating o = null;
-    //        KellerhoffEntities ctx = new KellerhoffEntities();
+    //        db_KellerhoffEntities ctx = new db_KellerhoffEntities();
     //        o = ctx.tbl_HomeSlide_Rating.Create();
     //        o.hsr_fecha = DateTime.Now;
     //        o.hsr_idCliente = hsr_idCliente;
@@ -203,7 +203,7 @@ public class capaEF
         try
         {
             tbl_HomeSlide o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_HomeSlide.FirstOrDefault(x => x.hsl_idHomeSlide == hsl_idHomeSlide);
             o.hsl_RatingCount = o.hsl_RatingCount + 1;
             ctx.SaveChanges();
@@ -218,7 +218,7 @@ public class capaEF
         List<tbl_Recall> resultado = null;
         try
         {
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             resultado = ctx.tbl_Recall.ToList();
         }
         catch (Exception ex)
@@ -234,7 +234,7 @@ public class capaEF
         {
             tbl_Recall o = null;
 
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
 
             if (rec_id == 0)
             {
@@ -272,7 +272,7 @@ public class capaEF
         try
         {
             tbl_Recall o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);
             o.rec_visible =  !o.rec_visible;
             ctx.SaveChanges();
@@ -288,7 +288,7 @@ public class capaEF
         try
         {
             tbl_Recall o = null;
-            KellerhoffEntities ctx = new KellerhoffEntities();
+            db_KellerhoffEntities ctx = new db_KellerhoffEntities();
             o = ctx.tbl_Recall.FirstOrDefault(x => x.rec_id == rec_id);
             ctx.tbl_Recall.Remove(o);
             ctx.SaveChanges();
